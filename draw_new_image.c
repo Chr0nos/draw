@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:41:47 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/03 20:17:44 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/14 15:19:05 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ void	draw_new_image(t_mlx *x)
 			x->img = img;
 			x->img->max_size = (img->bpp / 8) * x->width * x->height;
 		}
+		img->blocksize = img->bpp / 8;
 	}
 }

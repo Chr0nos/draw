@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/27 12:24:59 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/14 15:18:12 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ typedef struct	s_mlx_image
 	int			bpp;
 	int			endian;
 	int			max_size;
+	int			blocksize;
+	int			padding;
 }				t_mlx_img;
 
 typedef struct	s_mlx
