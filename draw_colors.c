@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 23:34:49 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/17 23:14:53 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/17 10:44:32 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void 		set_rgb(t_rgb *rgb, int t, float s, float v)
 	float	f;
 	float	vals[4];
 
+	if (t < 0)
+		t *= -1;
 	if (t > 360)
 		t %= 360;
 	ti = (t / 60) % 6;
