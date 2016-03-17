@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 23:34:49 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/17 10:44:32 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/17 12:30:13 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ inline static void	set_colors(t_rgb *rgb, float *vals, const int ti)
 		set_rgb_vals(rgb, v, l, m);
 }
 
-static void 		set_rgb(t_rgb *rgb, int t, float s, float v)
+static void			set_rgb(t_rgb *rgb, int t, float s, float v)
 {
 	int		ti;
 	float	f;
