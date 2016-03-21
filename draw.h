@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/14 15:18:12 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/21 16:43:54 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,6 @@ enum			e_color
 	COLOR_YELLOW = 0x00ffff00,
 	COLOR_BROWN = 0x00220000,
 	COLOR_BLACK = 0
-};
-
-enum			e_keycode
-{
-	M_ESC = 53,
-	L_ESC = 65307,
-	L_NEXT = 65363,
-	L_PREV = 65361,
-	L_DOWN = 65364,
-	L_UP = 65362,
-	L_ENTER = 65293,
-	L_DEL = 65288,
-	L_MORE = 65451,
-	L_LESS = 65453,
-	L_SHIFT = 65505
 };
 
 enum			e_hook
@@ -152,8 +137,7 @@ void			draw_new_image(t_mlx *x);
 void			draw_flush_image(t_mlx *x, t_mlx_img *img);
 void			draw_reset_image(t_mlx *x, int color);
 void			draw_loop(t_mlx *x);
-void			draw_loop_hook(t_mlx *x, int (*display)(void *user),
-		void *userdata);
+void			draw_loop_hook(t_mlx *x, int (*display)(), void *userdata);
 void			draw_clear(t_mlx *x);
 void			draw_perimeter(t_mlx *x, const t_point *tab, size_t size,
 		int color);
