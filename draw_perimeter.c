@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_perimeter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 11:14:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/12 11:39:42 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/21 13:38:37 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	draw_perimeter(t_mlx *x, const t_point *tab, size_t size, int color)
 		draw_line(x, &line, color);
 		p++;
 	}
-	line = draw_make_line(point->x, point->y, tab[0].x, tab[0].y);
+	line = draw_make_line(point->x, point->y, tab[0].x,
+		(tab[0].y > 0) ? tab[0].y - 1 : tab[0].y);
 	draw_line(x, &line, color);
 }
