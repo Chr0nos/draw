@@ -29,5 +29,15 @@ void	draw_sethook(t_mlx *x, int (*f)(int, void*), void *userdata)
 void	draw_sethook_ng(t_mlx *x, int (*f)(), void *userdata,
 		const enum e_hook hook)
 {
-	mlx_hook(x->winptr, hook, 1, f, userdata);
+	int		lnx;
+
+	if (hook == KEYDOWN)
+		lnx = 1;
+	else if (hook == KEYUP)
+		lnx = 2;
+	else if (hook == MOUSEDOWN)
+		lnx = 3;
+	else
+		lnx = 0;
+	mlx_hook(x->winptr, hook, lnx, f, userdata);
 }
