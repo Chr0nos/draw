@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rect.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:31:32 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/13 21:54:28 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:18:18 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-void		draw_rect(t_mlx *x, t_rect *rect, int color)
+void		draw_rect(t_mlx *x, t_rect *rect, unsigned int color)
 {
 	t_line	line;
 	t_line	(*f)(int, int, int, int);

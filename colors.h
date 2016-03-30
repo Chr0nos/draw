@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/16 15:30:21 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/16 21:39:36 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:36:37 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct		s_hsv
 
 typedef struct		s_rgb
 {
-	unsigned int	r;
-	unsigned int	g;
-	unsigned int	b;
-	unsigned int	padding;
+	unsigned char	a;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
 }					t_rgb;
 
 #endif

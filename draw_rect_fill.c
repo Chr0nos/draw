@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rect_fill.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/03 23:16:22 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/13 21:52:16 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:18:40 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include "libft.h"
 
-void	draw_rect_fill(t_mlx *x, t_rect *rect, int color)
+void	draw_rect_fill(t_mlx *x, t_rect *rect, unsigned int color)
 {
 	t_line		line;
 	const int	m = (rect->end.y - rect->start.y < 0) ? -1 : 1;

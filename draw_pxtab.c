@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_pxtab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 18:42:47 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/13 18:46:45 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:21:33 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include <string.h>
 
-void	draw_pxtab(t_mlx *x, t_point *tab, size_t size, int color)
+void	draw_pxtab(t_mlx *x, t_point *tab, size_t size, unsigned int color)
 {
 	size_t	p;
 

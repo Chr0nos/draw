@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:28:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/09 12:53:16 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:17:57 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx.h"
 #include "libft.h"
 
-inline static void	draw_flat_line(t_mlx *x, t_line line, int color,
+inline static void	draw_flat_line(t_mlx *x, t_line line, unsigned int color,
 		int variance)
 {
 	while (line.start.x != line.end.x)
@@ -24,8 +24,8 @@ inline static void	draw_flat_line(t_mlx *x, t_line line, int color,
 	}
 }
 
-inline static void	draw_vertical_line(t_mlx *x, t_line line, int color,
-		int variance)
+inline static void	draw_vertical_line(t_mlx *x, t_line line,
+	 unsigned int color, int variance)
 {
 	while (line.start.y != line.end.y)
 	{
@@ -34,8 +34,8 @@ inline static void	draw_vertical_line(t_mlx *x, t_line line, int color,
 	}
 }
 
-inline static void	draw_line_bresemham(t_mlx *x, t_line line, int color,
-		t_point *variance)
+inline static void	draw_line_bresemham(t_mlx *x, t_line line,
+	 unsigned int color, t_point *variance)
 {
 	int		err;
 
@@ -58,7 +58,7 @@ inline static void	draw_line_bresemham(t_mlx *x, t_line line, int color,
 	}
 }
 
-void				draw_line(t_mlx *x, t_line *line, int color)
+void				draw_line(t_mlx *x, t_line *line, unsigned int color)
 {
 	t_point		variance;
 

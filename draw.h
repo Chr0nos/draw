@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/21 16:43:54 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:56:50 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,26 +123,28 @@ t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
 t_circle		draw_make_circle(int x1, int y1, int radius);
 t_point			draw_make_px(int x, int y);
 void			draw_putpoint(t_point *point);
-void			draw_px(t_mlx *x, const t_point *point, const int color);
-void			draw_rect(t_mlx *x, t_rect *rect, int color);
-void			draw_rect_fill(t_mlx *x, t_rect *rect, int color);
+void			draw_px(t_mlx *x, const t_point *point, unsigned int color);
+void			draw_px_alpha(t_mlx *x, const t_point *point,
+	unsigned int color);
+void			draw_rect(t_mlx *x, t_rect *rect, unsigned int color);
+void			draw_rect_fill(t_mlx *x, t_rect *rect, unsigned int color);
 void			draw_rect_mist(t_mlx *x, const t_rect *rect, size_t pixels,
-		int color);
+		unsigned int color);
 void			draw_rect_invert(t_mlx *x, const t_rect *r);
-void			draw_line(t_mlx *x, t_line *line, int color);
+void			draw_line(t_mlx *x, t_line *line, unsigned int color);
 void			draw_grid(t_mlx *x, t_tab *tab);
-void			draw_box(t_mlx *x, t_rect *rect, int color);
-void			draw_circle(t_mlx *x, const t_circle *circle, int color);
+void			draw_box(t_mlx *x, t_rect *rect, unsigned int color);
+void			draw_circle(t_mlx *x, const t_circle *circle, unsigned int color);
 void			draw_new_image(t_mlx *x);
 void			draw_flush_image(t_mlx *x, t_mlx_img *img);
-void			draw_reset_image(t_mlx *x, int color);
+void			draw_reset_image(t_mlx *x, unsigned int color);
 void			draw_loop(t_mlx *x);
 void			draw_loop_hook(t_mlx *x, int (*display)(), void *userdata);
 void			draw_clear(t_mlx *x);
 void			draw_perimeter(t_mlx *x, const t_point *tab, size_t size,
-		int color);
-void			draw_pxtab(t_mlx *x, t_point *tab, size_t size, int color);
-int				draw_get_px(t_mlx *x, const t_point *point);
+		unsigned int color);
+void			draw_pxtab(t_mlx *x, t_point *tab, size_t size, unsigned int color);
+unsigned int	draw_get_px(t_mlx *x, const t_point *point);
 t_mlx			*draw_init(char *name, int width, int height);
 void			draw_sethook(t_mlx *x, int (*f)(int, void*), void *userdata);
 void			draw_sethook_ng(t_mlx *x, int (*f)(), void *userdata,

@@ -6,14 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 23:34:49 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/17 12:30:13 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:41:54 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-inline static void	set_rgb_vals(t_rgb *rgb, unsigned int r, unsigned int g,
-		unsigned int b)
+inline static void	set_rgb_vals(t_rgb *rgb, unsigned char r, unsigned char g,
+		unsigned  char b)
 {
 	rgb->r = r;
 	rgb->g = g;
@@ -22,10 +22,10 @@ inline static void	set_rgb_vals(t_rgb *rgb, unsigned int r, unsigned int g,
 
 inline static void	set_colors(t_rgb *rgb, float *vals, const int ti)
 {
-	const unsigned int		l = (unsigned int)(vals[0] * 255.0f);
-	const unsigned int		m = (unsigned int)(vals[1] * 255.0f);
-	const unsigned int		n = (unsigned int)(vals[2] * 255.0f);
-	const unsigned int		v = (unsigned int)(vals[3] * 255.0f);
+	const unsigned char		l = (unsigned char)(vals[0] * 255.0f);
+	const unsigned char		m = (unsigned char)(vals[1] * 255.0f);
+	const unsigned char		n = (unsigned char)(vals[2] * 255.0f);
+	const unsigned char		v = (unsigned char)(vals[3] * 255.0f);
 
 	if (ti == 0)
 		set_rgb_vals(rgb, v, n, l);

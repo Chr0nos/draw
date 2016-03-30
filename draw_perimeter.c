@@ -6,13 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 11:14:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/21 13:38:37 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:19:21 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-void	draw_perimeter(t_mlx *x, const t_point *tab, size_t size, int color)
+void	draw_perimeter(t_mlx *x, const t_point *tab, size_t size,
+	unsigned int color)
 {
 	const t_point	*point;
 	const t_point	*lpoint;

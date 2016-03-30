@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   draw_circle.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:18:11 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/13 22:02:07 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/30 15:20:26 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
 static void		draw_circle_px(t_mlx *x, const t_point *p, const t_circle *c,
-		int color)
+		unsigned int color)
 {
 	const int	tx[8] = { p->x, p->y, -p->x, -p->y, p->x, p->y, -p->x, -p->y };
 	const int	ty[8] = { p->y, p->x, p->y, p->x, -p->y, -p->x, -p->y, -p->x };
@@ -29,7 +29,8 @@ static void		draw_circle_px(t_mlx *x, const t_point *p, const t_circle *c,
 	}
 }
 
-void			draw_circle(t_mlx *x, const t_circle *circle, int color)
+void			draw_circle(t_mlx *x, const t_circle *circle,
+	unsigned int color)
 {
 	t_point	p;
 	int		d;
