@@ -6,14 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 23:34:49 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/30 15:41:54 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/03/31 16:43:56 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
 inline static void	set_rgb_vals(t_rgb *rgb, unsigned char r, unsigned char g,
-		unsigned  char b)
+		unsigned char b)
 {
 	rgb->r = r;
 	rgb->g = g;

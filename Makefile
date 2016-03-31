@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC=clang
-FLAGS=-Wall -Wextra -Werror -Weverything
+FLAGS=-Wall -Wextra -Werror -Weverything -Ofast
 LIBFT=../libft/
 MLX=../minilibx_macos
 NAME=libdraw.a
