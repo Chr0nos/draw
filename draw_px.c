@@ -6,14 +6,23 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:13:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/31 16:45:16 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/03 18:55:00 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-void		draw_px(t_mlx *x, const t_point *point, unsigned int color)
+void	draw_setcolor(SDL_Renderer *r, unsigned int color)
 {
-	*(unsigned int *)(unsigned long)(x->img->data + (x->img->width * point->y) +
-		(point->x * x->img->blocksize)) = color;
+	SDL_SetRenderDrawColor(r,
+		(color & 0xff0000) >> 16,
+		(color & 0xff00) >> 8,
+	 	color & 0xff,
+		255 - ((color & 0xff000000) >> 24));
+}
+
+void	draw_px(SDL_Renderer *r, const t_point px, unsigned int color)
+{
+	draw_setcolor(r, color);
+	SDL_RenderDrawPoint(r, px.x, px.y);
 }

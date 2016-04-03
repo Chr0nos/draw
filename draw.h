@@ -6,13 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/31 16:46:14 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/03 18:53:16 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_H
 # define DRAW_H
 # include <string.h>
+# include <SDL2/SDL.h>
 # include "colors.h"
 
 enum			e_color
@@ -100,15 +101,12 @@ typedef struct	s_mlx_image
 	int			padding;
 }				t_mlx_img;
 
-typedef struct	s_mlx
+typedef struct		s_drawsdl
 {
-	t_mlx_img	*img;
-	void		*mlxptr;
-	void		*winptr;
-	int			width;
-	int			height;
-	t_matrix	gtransform;
-}				t_mlx;
+	SDL_Window		*win;
+	SDL_Renderer	*render;
+	SDL_Event		events;
+}					t_drawsdl;
 
 t_matrix		draw_make_matrix_x(t_vector pos, float rad, t_vector scale);
 t_matrix		draw_make_matrix_y(t_vector pos, float rad, t_vector scale);
@@ -123,32 +121,19 @@ t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
 t_circle		draw_make_circle(int x1, int y1, int radius);
 t_point			draw_make_px(int x, int y);
 void			draw_putpoint(t_point *point);
-void			draw_px(t_mlx *x, const t_point *point, unsigned int color);
-void			draw_rect(t_mlx *x, t_rect *rect, unsigned int color);
-void			draw_rect_fill(t_mlx *x, t_rect *rect, unsigned int color);
-void			draw_rect_mist(t_mlx *x, const t_rect *rect, size_t pixels,
+void			draw_px(SDL_Renderer *r, const t_point px, unsigned int color);
+void			draw_rect(SDL_Renderer *r, t_rect *rect, unsigned int color);
+void			draw_rect_fill(SDL_Renderer *r, t_rect *rect,
+	unsigned int color);
+void			draw_rect_mist(SDL_Renderer *r, const t_rect *rect,
+	size_t pixels, unsigned int color);
+void			draw_line(SDL_Renderer *r, t_line *line, unsigned int color);
+void			draw_circle(SDL_Renderer *r, const t_circle *circle,
 		unsigned int color);
-void			draw_rect_invert(t_mlx *x, const t_rect *r);
-void			draw_line(t_mlx *x, t_line *line, unsigned int color);
-void			draw_grid(t_mlx *x, t_tab *tab);
-void			draw_box(t_mlx *x, t_rect *rect, unsigned int color);
-void			draw_circle(t_mlx *x, const t_circle *circle,
+void			draw_perimeter(SDL_Renderer *r, const t_point *tab, size_t size,
 		unsigned int color);
-void			draw_new_image(t_mlx *x);
-void			draw_flush_image(t_mlx *x, t_mlx_img *img);
-void			draw_reset_image(t_mlx *x, unsigned int color);
-void			draw_loop(t_mlx *x);
-void			draw_loop_hook(t_mlx *x, int (*display)(), void *userdata);
-void			draw_clear(t_mlx *x);
-void			draw_perimeter(t_mlx *x, const t_point *tab, size_t size,
+void			draw_pxtab(SDL_Renderer *r, t_point *tab, size_t size,
 		unsigned int color);
-void			draw_pxtab(t_mlx *x, t_point *tab, size_t size,
-		unsigned int color);
-unsigned int	draw_get_px(t_mlx *x, const t_point *point);
-t_mlx			*draw_init(char *name, int width, int height);
-void			draw_sethook(t_mlx *x, int (*f)(int, void*), void *userdata);
-void			draw_sethook_ng(t_mlx *x, int (*f)(), void *userdata,
-		const enum e_hook hook);
 t_point			*draw_move_pxlist(t_point *tab, size_t size, int x, int y);
 t_point			*draw_matrix_topxtab(t_point *tab, size_t size, t_matrix *t);
 t_point			draw_raster_px(t_vector v, t_matrix *transform);
@@ -156,5 +141,6 @@ t_vector		draw_matrix_multiply(t_vector point, const t_matrix *t);
 t_line			draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform);
 t_rgb			draw_color_hsv(int t, float s, float v);
 int				draw_color_rgb2int(t_rgb *rgb);
+void			draw_setcolor(SDL_Renderer *r, unsigned int color);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:18:11 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/30 15:20:26 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/03 18:54:09 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-static void		draw_circle_px(t_mlx *x, const t_point *p, const t_circle *c,
-		unsigned int color)
+static void		draw_circle_px(SDL_Renderer *r, const t_point *p,
+	const t_circle *c)
 {
 	const int	tx[8] = { p->x, p->y, -p->x, -p->y, p->x, p->y, -p->x, -p->y };
 	const int	ty[8] = { p->y, p->x, p->y, p->x, -p->y, -p->x, -p->y, -p->x };
@@ -25,22 +25,23 @@ static void		draw_circle_px(t_mlx *x, const t_point *p, const t_circle *c,
 	{
 		px.x = c->center.x + tx[idx];
 		px.y = c->center.y + ty[idx];
-		draw_px(x, &px, color);
+		SDL_RenderDrawPoint(r, px.x, px.y);
 	}
 }
 
-void			draw_circle(t_mlx *x, const t_circle *circle,
+void			draw_circle(SDL_Renderer *r, const t_circle *circle,
 	unsigned int color)
 {
 	t_point	p;
 	int		d;
 
+	draw_setcolor(r, color);
 	p.x = 0;
 	p.y = circle->radius;
 	d = p.y - 1;
 	while (p.y >= p.x)
 	{
-		draw_circle_px(x, &p, circle, color);
+		draw_circle_px(r, &p, circle);
 		if (d >= (p.x * 2))
 			d -= (2 * p.x++) + 1;
 		else if (d < (2 * (circle->radius - p.y)))
