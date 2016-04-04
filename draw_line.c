@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:28:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/03 21:58:20 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:25:00 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ inline static void	draw_line_bresemham(t_draw *d, t_line line,
 	}
 }
 
-void				draw_line(t_draw *d, t_line *line, unsigned int color)
+void				draw_line(t_draw *d, t_line line, unsigned int color)
 {
 	t_point		variance;
 
 	d->color = color;
-	variance.x = (line->end.x - line->start.x < 0) ? -1 : 1;
-	variance.y = (line->end.y - line->start.y < 0) ? -1 : 1;
-	if ((line->dx == 0) && (line->dy == 0))
-		draw_px(d, line->start);
-	else if (line->dy == 0)
-		draw_flat_line(d, *line, variance.x);
-	else if (line->dx == 0)
-		draw_vertical_line(d, *line, variance.y);
+	variance.x = (line.end.x - line.start.x < 0) ? -1 : 1;
+	variance.y = (line.end.y - line.start.y < 0) ? -1 : 1;
+	if ((line.dx == 0) && (line.dy == 0))
+		draw_px(d, line.start);
+	else if (line.dy == 0)
+		draw_flat_line(d, line, variance.x);
+	else if (line.dx == 0)
+		draw_vertical_line(d, line, variance.y);
 	else
-		draw_line_bresemham(d, *line, &variance);
+		draw_line_bresemham(d, line, &variance);
 }

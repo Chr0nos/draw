@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 11:14:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/03 22:03:12 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:32:35 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	draw_perimeter(t_draw *d, const t_point *tab, size_t size,
 	const t_point	*point;
 	const t_point	*lpoint;
 	size_t			p;
-	t_line			line;
 
 	if (!size)
 		return ;
@@ -34,11 +33,10 @@ void	draw_perimeter(t_draw *d, const t_point *tab, size_t size,
 	{
 		lpoint = point;
 		point = &tab[p];
-		line = draw_make_line(point->x, point->y, lpoint->x, lpoint->y);
-		draw_line(d, &line, color);
+		draw_line(d, draw_make_line(point->x, point->y, lpoint->x, lpoint->y),
+			color);
 		p++;
 	}
-	line = draw_make_line(point->x, point->y, tab[0].x,
-		(tab[0].y > 0) ? tab[0].y - 1 : tab[0].y);
-	draw_line(d, &line, color);
+	draw_line(d, draw_make_line(point->x, point->y, tab[0].x,
+		(tab[0].y > 0) ? tab[0].y - 1 : tab[0].y), color);
 }

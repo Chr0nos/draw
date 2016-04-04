@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:13:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/03 22:57:56 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:22:19 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 void	draw_setcolor(t_draw *d, unsigned int color)
 {
 	d->color = color;
-	/*
-	SDL_SetRenderDrawColor(r,
-		(color & 0xff0000) >> 16,
-		(color & 0xff00) >> 8,
-	 	color & 0xff,
-		255 - ((color & 0xff000000) >> 24));
-	*/
 }
 
 void	draw_px(t_draw *d, const t_point px)
@@ -43,4 +36,21 @@ void	draw_pxc(t_draw *d, const t_point px, unsigned int color)
 {
 	d->color = color;
 	draw_px(d, px);
+}
+
+/*
+** return the px pixel of the surface,
+** surface must be SDL_UnlockSurface before
+*/
+
+unsigned int	draw_getpxs(SDL_Surface *surface, t_point px)
+{
+	return (*(unsigned int *)(unsigned long)((
+		(unsigned long)surface->pixels * (unsigned int)px.y) +
+		(unsigned int)(px.x * surface->format->BytesPerPixel)));
+}
+
+unsigned int	draw_getpx(t_draw *d, t_point px)
+{
+	return (draw_getpxs(d->screen, px));
 }
