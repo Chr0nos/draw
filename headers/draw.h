@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 03:03:51 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 23:46:44 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ unsigned int	draw_getpxs(SDL_Surface *surface, t_point px);
 unsigned int	draw_getpx(t_draw *d, t_point px);
 
 int				draw_init(t_draw *d, t_point geometry, const char *title);
+t_point			draw_getgeometry(SDL_Window *window);
 
 #endif

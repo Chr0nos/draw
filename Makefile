@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#*   Updated: 2016/04/04 03:00:25 by snicolet         ###   ########.fr       *#
+#    Updated: 2016/04/04 23:48:13 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ OBJ=draw_line.o \
 	draw_raster_px.o draw_raster_line.o \
 	draw_vector_transform.o \
 	draw_colors.o \
-	draw_init.o
+	draw_init.o \
+	draw_getgeometry.o
 
 all: $(NAME)
 
