@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:29:29 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:49:51 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ typedef struct		s_drawsdl
 	SDL_Renderer	*render;
 	SDL_Event		events;
 	SDL_Surface		*screen;
+	t_point			geometry;
 	unsigned int	color;
 }					t_draw;
 
@@ -148,5 +149,7 @@ void			draw_px(t_draw *d, const t_point px);
 void			draw_pxc(t_draw *d, const t_point px, unsigned int color);
 unsigned int	draw_getpxs(SDL_Surface *surface, t_point px);
 unsigned int	draw_getpx(t_draw *d, t_point px);
+
+int				draw_init(t_draw *d, t_point geometry, const char *title);
 
 #endif

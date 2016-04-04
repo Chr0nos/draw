@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:28:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:25:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:43:02 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <SDL2/SDL.h>
 
-inline static void	draw_flat_line(t_draw *d, t_line line,
+inline static void	draw_line_flatx(t_draw *d, t_line line,
 	int variance)
 {
 	while (line.start.x != line.end.x)
@@ -24,7 +24,7 @@ inline static void	draw_flat_line(t_draw *d, t_line line,
 	}
 }
 
-inline static void	draw_vertical_line(t_draw *d, t_line line,
+inline static void	draw_line_vertical(t_draw *d, t_line line,
 		int variance)
 {
 	while (line.start.y != line.end.y)
@@ -68,9 +68,9 @@ void				draw_line(t_draw *d, t_line line, unsigned int color)
 	if ((line.dx == 0) && (line.dy == 0))
 		draw_px(d, line.start);
 	else if (line.dy == 0)
-		draw_flat_line(d, line, variance.x);
+		draw_line_flatx(d, line, variance.x);
 	else if (line.dx == 0)
-		draw_vertical_line(d, line, variance.y);
+		draw_line_vertical(d, line, variance.y);
 	else
 		draw_line_bresemham(d, line, &variance);
 }
