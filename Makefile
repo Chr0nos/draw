@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/04/04 02:54:10 by snicolet         ###   ########.fr        #
+#*   Updated: 2016/04/04 03:00:25 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,6 @@ fclean: clean
 re: fclean all
 
 %.o: %.c
-	$(CC) -c $< $(FLAGS) -I $(LIBFT) -I../ -I $(SDL)
+	$(CC) -c $< $(FLAGS) -I $(LIBFT) -I../ -I $(SDL) -I ./headers
 
 .PHONY: re fclean clean
