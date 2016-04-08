@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:13:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 20:02:15 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/05 01:31:49 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ void	draw_pxc(t_draw *d, const t_point px, unsigned int color)
 
 unsigned int	draw_getpxs(SDL_Surface *surface, t_point px)
 {
-	return (*(unsigned int *)((unsigned long)surface->pixels +
-		(unsigned long)(px.y * surface->pitch) +
-		(unsigned long)(px.x * surface->format->BytesPerPixel)));
+	//if (surface->format->BytesPerPixel == 4)
+		return (*(unsigned int *)((unsigned long)surface->pixels +
+			(unsigned long)(px.y * surface->pitch) +
+			(unsigned long)(px.x * surface->format->BytesPerPixel)));
+	//else
+	//	return (0);
 }
 
 unsigned int	draw_getpx(t_draw *d, t_point px)

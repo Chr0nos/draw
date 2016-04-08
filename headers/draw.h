@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 23:46:44 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/08 01:58:12 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void			draw_setcolor(t_draw *d, unsigned int color);
 ** pixels manipulations
 */
 
+void			draw_reset_surface(SDL_Surface *surface, unsigned int color);
 void			draw_px(t_draw *d, const t_point px);
 void			draw_pxc(t_draw *d, const t_point px, unsigned int color);
 unsigned int	draw_getpxs(SDL_Surface *surface, t_point px);
