@@ -134,5 +134,7 @@ unsigned int	draw_getpx(t_draw *d, t_point px);
 
 int				draw_init(t_draw *d, t_point geometry, const char *title);
 t_point			draw_getgeometry(SDL_Window *window);
+void			*draw_pixelsconvert(unsigned int *dest, const void *src,
+		int bpp, size_t size);
 
 #endif

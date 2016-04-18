@@ -38,7 +38,8 @@ OBJ=draw_line.o \
 	draw_colors.o \
 	draw_init.o \
 	draw_getgeometry.o \
-	draw_reset_surface.o
+	draw_reset_surface.o \
+	draw_pixelconvert.o
 
 all: $(NAME)
 
