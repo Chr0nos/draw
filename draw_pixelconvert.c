@@ -13,8 +13,9 @@ static void		draw_pixels_convert_init(size_t *pos, size_t *dpos,
 /*
 ** size is in pixels
 */
-void	*draw_pixelsconvert(unsigned int *dest, const void *src, int bpp,
-		size_t size)
+
+void			*draw_pixelsconvert(unsigned int *dest, const void *src,
+		int bpp, size_t size)
 {
 	size_t			dpos;
 	size_t			pos;
