@@ -47,9 +47,7 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 					((unsigned int)p[1] << 8) |
 					(unsigned int)p[2];
 			else
-				pixel = (unsigned int)p[0] |
-					((unsigned int)p[1] << 8) |
-					((unsigned int)p[2] << 16);
+				pixel = (unsigned int)(p[0] | (p[1] << 8) | (p[2] << 16));
 		}
 		dest[dpos++] = pixel;
 		pos += (unsigned int)bpp;
