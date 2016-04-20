@@ -42,10 +42,9 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 		//todo: fix this comportement: actualy this conversion is not ok
 		else if (bpp == 3)
 		{
+			p = (const unsigned char *)((unsigned long)src + pos);
 			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
-				pixel = ((unsigned int)p[0] << 16) |
-					((unsigned int)p[1] << 8) |
-					(unsigned int)p[2];
+				pixel = (unsigned int)((p[0] << 16) | (p[1] << 8) | p[2]);
 			else
 				pixel = (unsigned int)(p[0] | (p[1] << 8) | (p[2] << 16));
 		}
