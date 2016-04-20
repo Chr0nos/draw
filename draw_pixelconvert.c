@@ -17,9 +17,10 @@ static void		draw_pixels_convert_init(size_t *pos, size_t *dpos,
 void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 		int bpp, size_t size)
 {
-	size_t			dpos;
-	size_t			pos;
-	unsigned int	pixel;
+	size_t					dpos;
+	size_t					pos;
+	unsigned int			pixel;
+	const unsigned char		*p = (const unsigned char *)src;
 
 	if (bpp == 4)
 		return (ft_memcpy(dest, src, size * 4));
@@ -30,13 +31,25 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 	{
 		if (bpp == 1)
 		{
-			pixel = (unsigned int)(((const unsigned char *)src)[pos]);
+			pixel = (unsigned int)p[pos];
 			pixel |= pixel << 8 | pixel << 16;
 		}
 		else if (bpp == 2)
 		{
 			pixel = ((const unsigned short*)src)[pos];
 			pixel |= pixel << 16;
+		}
+		//todo: fix this comportement: actualy this conversion is not ok
+		else if (bpp == 3)
+		{
+			if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
+				pixel = ((unsigned int)p[0] << 16) |
+					((unsigned int)p[1] << 8) |
+					(unsigned int)p[2];
+			else
+				pixel = (unsigned int)p[0] |
+					((unsigned int)p[1] << 8) |
+					((unsigned int)p[2] << 16);
 		}
 		dest[dpos++] = pixel;
 		pos += (unsigned int)bpp;
