@@ -27,7 +27,7 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 	if ((bpp > 4) || (bpp < 1))
 		return (dest);
 	draw_pixels_convert_init(&pos, &dpos, &pixel);
-	while (pos < size)
+	while (dpos < size)
 	{
 		if (bpp == 1)
 		{
