@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   drawsdl.h                                          :+:      :+:    :+:   */
+/*   draw_px_surface.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/04 03:01:09 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/21 15:05:27 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/21 14:56:52 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/21 14:57:48 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAWSDL_H
-# define DRAWSDL_H
-# include "tpoint.h"
-# include <SDL2/SDL.h>
+#include "draw.h"
 
-typedef struct		s_drawsdl
+/*
+** return the px pixel of the surface,
+** surface must be SDL_UnlockSurface before
+*/
+
+unsigned int	draw_getpxs(SDL_Surface *surface, t_point px)
 {
-	SDL_Window		*win;
-	SDL_Renderer	*render;
-	SDL_Event		events;
-	SDL_Surface		*screen;
-	SDL_Texture		*screen_tex;
-	t_point			geometry;
-	unsigned int	color;
-}					t_draw;
-
-#endif
+	return (*(unsigned int *)((unsigned long)surface->pixels +
+		(unsigned long)(px.y * surface->pitch) +
+		(unsigned long)(px.x * surface->format->BytesPerPixel)));
+}

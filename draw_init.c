@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/16 02:03:17 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/21 15:09:33 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		draw_init(t_draw *d, t_point geometry, const char *title)
 			SDL_RENDERER_SOFTWARE);
 	//SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_ACCELERATED);
 	d->screen = NULL;
+	d->screen_tex = NULL;
 	return (1);
 }

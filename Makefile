@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/04/08 01:57:12 by snicolet         ###   ########.fr        #
+#    Updated: 2016/04/21 14:58:07 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ OBJ=draw_line.o \
 	draw_init.o \
 	draw_getgeometry.o \
 	draw_reset_surface.o \
-	draw_pixelconvert.o
+	draw_pixelconvert.o \
+	draw_px_surface.o
 
 all: $(NAME)
 
