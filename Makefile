@@ -13,7 +13,6 @@
 CC=clang
 FLAGS=-Wall -Wextra -Werror -Weverything -Ofast
 LIBFT=../libft/
-MLX=../minilibx_macos
 NAME=libdraw.a
 OBJ=draw_line.o \
 	draw_rect.o draw_rect_fill.o draw_rect_mist.o draw_rect_invert.o \
@@ -47,21 +46,18 @@ OBJ=draw_line.o \
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C $(MLX)
 	$(AR) rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJ) $(MLXOBJ)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(MLX) clean
-	rm -f $(MLX)/libmlx.a
 
 re: fclean all
 
 %.o: %.c
-	$(CC) -c $< $(FLAGS) -I $(MLX) -I $(LIBFT) -I../
+	$(CC) -c $< $(FLAGS) -I $(LIBFT) -I../
 
 .PHONY: re fclean clean
