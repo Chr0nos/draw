@@ -6,14 +6,44 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:13:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/31 16:45:16 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/21 15:20:26 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-void		draw_px(t_mlx *x, const t_point *point, unsigned int color)
+void	draw_setcolor(t_draw *d, unsigned int color)
 {
-	*(unsigned int *)(unsigned long)(x->img->data + (x->img->width * point->y) +
-		(point->x * x->img->blocksize)) = color;
+	d->color = color;
+}
+
+void	draw_pxi(unsigned int *pixels, const t_point px,
+	const unsigned int width, const unsigned int color)
+{
+	pixels[(unsigned int)px.y * width + (unsigned int)px.x] = color;
+}
+
+void	draw_px(t_draw *d, const t_point px)
+{
+	const int	bpp = (int)(d->screen->format->BytesPerPixel);
+	Uint8		*p;
+
+	p = (Uint8 *)d->screen->pixels + px.y * d->screen->pitch + px.x * bpp;
+	if (bpp == 1)
+		*p = (Uint8)d->color;
+	else if (bpp == 2)
+		*(Uint16 *)(unsigned long)p = (Uint16)d->color;
+	else if (bpp == 4)
+		*(Uint32 *)(unsigned long)p = d->color;
+}
+
+void	draw_pxc(t_draw *d, const t_point px, unsigned int color)
+{
+	d->color = color;
+	draw_px(d, px);
+}
+
+unsigned int	draw_getpx(t_draw *d, t_point px)
+{
+	return (draw_getpxs(d->screen, px));
 }

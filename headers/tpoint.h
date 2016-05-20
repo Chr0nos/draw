@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_clear.c                                       :+:      :+:    :+:   */
+/*   tpoint.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 17:06:31 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/04 17:11:26 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/04 03:02:59 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/04 03:03:16 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
-#include "mlx.h"
+#ifndef TPOINT_H
+# define TPOINT_H
 
-void	draw_clear(t_mlx *x)
+typedef struct	s_point
 {
-	mlx_clear_window(x->mlxptr, x->winptr);
-	mlx_destroy_window(x->mlxptr, x->winptr);
-}
+	int			x;
+	int			y;
+}				t_point;
+
+#endif

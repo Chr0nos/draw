@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_loop.c                                        :+:      :+:    :+:   */
+/*   draw_reset_surface.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 15:02:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/21 16:43:24 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/08 01:46:30 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/08 01:59:06 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include "mlx.h"
 
-void	draw_loop(t_mlx *x)
+void	draw_reset_surface(SDL_Surface *surface, unsigned int color)
 {
-	mlx_loop(x->mlxptr);
-}
+	unsigned long	blk;
+	unsigned long	pixels;
+	size_t			size;
+	size_t			p;
 
-void	draw_loop_hook(t_mlx *x, int (*display)(), void *userdata)
-{
-	mlx_loop_hook(x->mlxptr, display, userdata);
+	blk = (unsigned long)color | (unsigned long)color << 32;
+	pixels = (unsigned long)surface->pixels;
+	size = (unsigned int)surface->h * (unsigned int)surface->w *
+		(unsigned int)surface->format->BytesPerPixel;
+	p = 0;
+	while (p < size)
+	{
+		*(unsigned long *)(pixels + p) = blk;
+		p += 8;
+	}
 }

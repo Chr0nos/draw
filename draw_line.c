@@ -6,36 +6,36 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:28:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/31 16:43:05 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/04/04 02:43:02 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include "mlx.h"
 #include "libft.h"
+#include <SDL2/SDL.h>
 
-inline static void	draw_flat_line(t_mlx *x, t_line line, unsigned int color,
-		int variance)
+inline static void	draw_line_flatx(t_draw *d, t_line line,
+	int variance)
 {
 	while (line.start.x != line.end.x)
 	{
-		draw_px(x, &line.start, color);
+		draw_px(d, line.start);
 		line.start.x += variance;
 	}
 }
 
-inline static void	draw_vertical_line(t_mlx *x, t_line line,
-		unsigned int color, int variance)
+inline static void	draw_line_vertical(t_draw *d, t_line line,
+		int variance)
 {
 	while (line.start.y != line.end.y)
 	{
-		draw_px(x, &line.start, color);
+		draw_px(d, line.start);
 		line.start.y += variance;
 	}
 }
 
-inline static void	draw_line_bresemham(t_mlx *x, t_line line,
-		unsigned int color, t_point *variance)
+inline static void	draw_line_bresemham(t_draw *d, t_line line,
+	t_point *variance)
 {
 	int		err;
 
@@ -46,11 +46,11 @@ inline static void	draw_line_bresemham(t_mlx *x, t_line line,
 	err = -line.dx >> 1;
 	while (line.start.x != line.end.x)
 	{
-		draw_px(x, &line.start, color);
+		draw_px(d, line.start);
 		err += line.dy;
 		while (err > 0)
 		{
-			draw_px(x, &line.start, color);
+			draw_px(d, line.start);
 			err -= line.dx;
 			line.start.y += variance->y;
 		}
@@ -58,18 +58,19 @@ inline static void	draw_line_bresemham(t_mlx *x, t_line line,
 	}
 }
 
-void				draw_line(t_mlx *x, t_line *line, unsigned int color)
+void				draw_line(t_draw *d, t_line line, unsigned int color)
 {
 	t_point		variance;
 
-	variance.x = (line->end.x - line->start.x < 0) ? -1 : 1;
-	variance.y = (line->end.y - line->start.y < 0) ? -1 : 1;
-	if ((line->dx == 0) && (line->dy == 0))
-		draw_px(x, &line->start, color);
-	else if (line->dy == 0)
-		draw_flat_line(x, *line, color, variance.x);
-	else if (line->dx == 0)
-		draw_vertical_line(x, *line, color, variance.y);
+	d->color = color;
+	variance.x = (line.end.x - line.start.x < 0) ? -1 : 1;
+	variance.y = (line.end.y - line.start.y < 0) ? -1 : 1;
+	if ((line.dx == 0) && (line.dy == 0))
+		draw_px(d, line.start);
+	else if (line.dy == 0)
+		draw_line_flatx(d, line, variance.x);
+	else if (line.dx == 0)
+		draw_line_vertical(d, line, variance.y);
 	else
-		draw_line_bresemham(x, *line, color, &variance);
+		draw_line_bresemham(d, line, &variance);
 }

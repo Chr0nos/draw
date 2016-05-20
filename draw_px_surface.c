@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_get_px.c                                      :+:      :+:    :+:   */
+/*   draw_px_surface.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/04 22:12:16 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/30 15:34:17 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/21 14:56:52 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/21 14:57:48 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include "libft.h"
 
-unsigned int	draw_get_px(t_mlx *x, const t_point *point)
+/*
+** return the px pixel of the surface,
+** surface must be SDL_UnlockSurface before
+*/
+
+unsigned int	draw_getpxs(SDL_Surface *surface, t_point px)
 {
-	return (*(unsigned int *)(unsigned long)(x->img->data +
-		(x->img->width * point->y) + (point->x * x->img->blocksize)));
+	return (*(unsigned int *)((unsigned long)surface->pixels +
+		(unsigned long)(px.y * surface->pitch) +
+		(unsigned long)(px.x * surface->format->BytesPerPixel)));
 }

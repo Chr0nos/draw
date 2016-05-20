@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_flush_image.c                                 :+:      :+:    :+:   */
+/*   draw_getgeometry.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 17:18:14 by snicolet          #+#    #+#             */
-/*   Updated: 2015/12/29 17:27:27 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/04 23:45:56 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/04 23:48:27 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include "mlx.h"
 
-void	draw_flush_image(t_mlx *x, t_mlx_img *img)
+t_point		draw_getgeometry(SDL_Window *window)
 {
-	mlx_put_image_to_window(x->mlxptr, x->winptr, img->img, 0, 0);
+	t_point	px;
+
+	SDL_GetWindowSize(window, &px.x, &px.y);
+	return (px);
 }

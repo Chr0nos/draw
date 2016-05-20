@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   draw_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/29 15:10:35 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/08 18:32:29 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/21 15:09:33 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include "mlx.h"
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
-t_mlx	*draw_init(char *name, int width, int height)
+int		draw_init(t_draw *d, t_point geometry, const char *title)
 {
-	t_mlx	*x;
-
-	if (!(x = (t_mlx*)malloc(sizeof(t_mlx))))
-		return (NULL);
-	x->mlxptr = mlx_init();
-	if (!x->mlxptr)
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		free(x);
-		return (NULL);
+		ft_putendl("error: failed to init sdl");
+		return (-1);
 	}
-	if (!(x->winptr = mlx_new_window(x->mlxptr, width, height, name)))
+	d->geometry = geometry;
+	d->win = SDL_CreateWindow(title,
+			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+			geometry.x, geometry.y,
+			SDL_WINDOW_RESIZABLE);
+	if (!d->win)
 	{
-		free(x);
-		return (NULL);
+		ft_putendl("error: failed to init sdl window");
+		return (-2);
 	}
-	x->height = height;
-	x->width = width;
-	draw_new_image(x);
-	return (x);
+	d->render = SDL_CreateRenderer(d->win, -1,
+			SDL_RENDERER_SOFTWARE);
+	//SDL_RENDERER_TARGETTEXTURE | SDL_RENDERER_ACCELERATED);
+	d->screen = NULL;
+	d->screen_tex = NULL;
+	return (1);
 }

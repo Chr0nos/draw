@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_reset_image.c                                 :+:      :+:    :+:   */
+/*   drawsdl.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/03 19:53:02 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/30 15:20:59 by snicolet         ###   ########.fr       */
+/*   Created: 2016/04/04 03:01:09 by snicolet          #+#    #+#             */
+/*   Updated: 2016/04/21 15:05:27 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
-#include "libft.h"
+#ifndef DRAWSDL_H
+# define DRAWSDL_H
+# include "tpoint.h"
+# include <SDL2/SDL.h>
 
-void	draw_reset_image(t_mlx *x, unsigned int color)
+typedef struct		s_drawsdl
 {
-	size_t			p;
-	const size_t	size = (size_t)(x->img->width * x->height);
-	unsigned long	blk;
+	SDL_Window		*win;
+	SDL_Renderer	*render;
+	SDL_Event		events;
+	SDL_Surface		*screen;
+	SDL_Texture		*screen_tex;
+	t_point			geometry;
+	unsigned int	color;
+}					t_draw;
 
-	blk = (unsigned long)color | (unsigned long)color << 32;
-	p = 0;
-	while (p < size)
-	{
-		*(unsigned long *)((unsigned long)x->img->data + p) = blk;
-		p += 8;
-	}
-}
+#endif
