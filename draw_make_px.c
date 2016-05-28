@@ -14,9 +14,5 @@
 
 t_point		draw_make_px(int x, int y)
 {
-	t_point	p;
-
-	p.x = x;
-	p.y = y;
-	return (p);
+	return ((t_point){x, y});
 }
