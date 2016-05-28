@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/28 03:41:37 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/29 00:53:20 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,10 @@ t_matrix		draw_matrix_multiply_matrix(t_matrix m1, const t_matrix *m2);
 t_matrix		draw_make_matrix_identity(void);
 t_matrix		draw_matrix_multiply_axes(t_vector axes, t_vector scale,
 	t_vector offset);
+
+t_matrix		draw_make_matrix_rot_x(double rad);
+t_matrix		draw_make_matrix_rot_y(double rad);
+t_matrix		draw_make_matrix_rot_z(double rad);
 
 t_vector		draw_make_vector(float x, float y, float z);
 t_vector		draw_vector_transform(t_vector v, const t_matrix *m);
