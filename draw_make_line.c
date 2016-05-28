@@ -15,13 +15,6 @@
 
 t_line	draw_make_line(int x1, int y1, int x2, int y2)
 {
-	t_line	line;
-
-	line.dx = ft_abs(x2 - x1);
-	line.dy = ft_abs(y2 - y1);
-	line.start.x = x1;
-	line.start.y = y1;
-	line.end.x = x2;
-	line.end.y = y2;
-	return (line);
+	return ((t_line){(t_point){x1, y1}, (t_point){x2, y2},
+		ft_abs(x2 - x1), ft_abs(y2 - y1)});
 }
