@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 19:29:56 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/20 21:34:40 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/28 04:05:01 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static unsigned int	draw_pixelconvert(const int bpp, size_t pos,
 ** size is in pixels
 */
 
-void			*draw_pixelsconvert(unsigned int *dest, const void *src,
+void				*draw_pixelsconvert(unsigned int *dest, const void *src,
 		int bpp, size_t size)
 {
 	size_t					dpos;
