@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:31:32 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:31:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/28 03:49:04 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void		draw_rect(t_draw *d, t_rect rect, unsigned int color)
 {
-	t_line	(*f)(int, int, int, int);
+	t_point		pts[5];
 
-	f = draw_make_line;
-	draw_line(d,
-		f(rect.start.x, rect.start.y, rect.end.x, rect.start.y), color);
-	draw_line(d,
-		f(rect.end.x, rect.start.y, rect.end.x, rect.end.y), color);
-	draw_line(d,
-		f(rect.end.x, rect.end.y, rect.start.x, rect.end.y), color);
-	draw_line(d,
-		f(rect.start.x, rect.start.y, rect.start.x, rect.end.y), color);
+	pts[0] = (t_point){rect.start.x, rect.start.y};
+	pts[1] = (t_point){rect.end.x, rect.start.y};
+	pts[2] = (t_point){rect.end.x, rect.end.y};
+	pts[3] = (t_point){rect.start.x, rect.end.y};
+	pts[4] = (t_point){rect.start.x, rect.start.y};
+	draw_perimeter(d, pts, 5, color);
 }
