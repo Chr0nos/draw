@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/29 00:53:20 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/29 01:18:33 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ t_matrix		draw_make_matrix_rot_z(double rad);
 
 t_vector		draw_make_vector(float x, float y, float z);
 t_vector		draw_vector_transform(t_vector v, const t_matrix *m);
+t_vector		draw_vector_add(t_vector a, t_vector b);
 
 t_line			draw_make_line(int x1, int y1, int x2, int y2);
 t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
