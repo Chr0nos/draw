@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_raster_px.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:15:17 by snicolet          #+#    #+#             */
-/*   Updated: 2016/02/08 18:13:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/30 19:27:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 t_point		draw_raster_px(t_vector v, t_matrix *transform)
 {
-	t_point		p;
-
 	v = draw_vector_transform(v, transform);
-	p.x = (int)v.x;
-	p.y = (int)v.y;
-	return (p);
+	return ((t_point){(int)v.x, (int)v.y});
 }
