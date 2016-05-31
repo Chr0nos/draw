@@ -6,7 +6,7 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:04:58 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/30 21:39:22 by alhote           ###   ########.fr       */
+/*   Updated: 2016/05/31 11:31:07 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,13 @@ t_matrix	draw_make_matrix_perspective(t_perspective s, t_vector c)
 	float			frustumdepth;
 	float			oneoverdepth;
 
-	frustumdepth = s.farDist - s.nearDist;
-	oneoverdepth = 1 / s.frustumDepth;
-	if (fov <= 0 || aspect == 0)
-		return (0);
-	m.y = draw_make_vector(0.0f, 1 / tan(0.5f * s.fov), 0.0f);
+	frustumdepth = s.fardist - s.neardist;
+	oneoverdepth = 1 / frustumdepth;
+	m.y = draw_make_vector(0.0f, 1 / tanf(0.5f * s.fov), 0.0f);
 	m.x = draw_make_vector((s.lefthanded ? 1 : -1) * m.y.y / s.aspect, 0.0f, 0.0f);
-	m.z = draw_make_vector(0.0f, 0.0f, s.fardist * s.oneOverDepth);
-	m.z.offset = 1;
-	m.offset = draw_make_vector(c.x, c.z, (-s.fardist * s.neardist) * s.oneoverDepth);
-	m.offset.z = 0;
+	m.z = draw_make_vector(0.0f, 0.0f, s.fardist * oneoverdepth);
+	m.offset = draw_make_vector(c.x, c.z, (-s.fardist * s.neardist) * oneoverdepth);
+	return (m);
 }
 //
     // General form of the Projection Matrix
