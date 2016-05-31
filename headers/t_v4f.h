@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 21:36:56 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/30 21:40:54 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/31 17:41:57 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ typedef struct	s_m4
 	t_v4f		y;
 	t_v4f		z;
 	t_v4f		w;
-	t_v4f		offset;
 }				t_m4;
 
 #endif
