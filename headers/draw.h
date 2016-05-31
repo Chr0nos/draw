@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/31 06:08:41 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/31 11:31:04 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "tpoint.h"
 # include "t_v4f.h"
 # include "drawsdl.h"
+# include "tperspective.h"
 
 enum			e_color
 {
@@ -89,6 +90,7 @@ typedef struct	s_circle
 t_matrix		draw_make_matrix_x(t_vector pos, float rad, t_vector scale);
 t_matrix		draw_make_matrix_y(t_vector pos, float rad, t_vector scale);
 t_matrix		draw_make_matrix_z(t_vector pos, float rad, t_vector scale);
+t_matrix		draw_make_matrix_perspective(t_perspective s, t_vector c);
 t_matrix		draw_make_matrix_iso(int x, int y, int w, int h);
 t_matrix		draw_make_matrix_ortho(t_vector s, t_vector c);
 t_matrix		draw_matrix_multiply_matrix(t_matrix m1, const t_matrix *m2);
