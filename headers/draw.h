@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/30 18:36:32 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/31 01:47:16 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <SDL2/SDL.h>
 # include "colors.h"
 # include "tpoint.h"
+# include "t_v4f.h"
 # include "drawsdl.h"
 
 enum			e_color
@@ -126,6 +127,7 @@ t_point			*draw_move_pxlist(t_point *tab, size_t size, int x, int y);
 t_point			*draw_matrix_topxtab(t_point *tab, size_t size, t_matrix *t);
 t_point			draw_raster_px(t_vector v, t_matrix *transform);
 t_vector		draw_matrix_multiply(t_vector point, const t_matrix *t);
+t_v4f			draw_matrix_multiply_m4(t_v4f pt, const t_m4 *m);
 t_line			draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform);
 t_rgb			draw_color_hsv(int t, float s, float v);
 int				draw_color_rgb2int(t_rgb *rgb);
