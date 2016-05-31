@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/31 17:41:02 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/05/31 18:21:21 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,5 +156,7 @@ int				draw_init(t_draw *d, t_point geometry, const char *title);
 t_point			draw_getgeometry(SDL_Window *window);
 void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 		int bpp, size_t size);
+
+void			draw_putvector(t_vector v, unsigned int p);
 
 #endif
