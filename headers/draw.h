@@ -96,6 +96,8 @@ t_matrix		draw_make_matrix_identity(void);
 t_matrix		draw_matrix_multiply_axes(t_vector axes, t_vector scale,
 	t_vector offset);
 
+t_m4			draw_make_matrix_m4_identity(void);
+
 t_matrix		draw_make_matrix_rot_x(double rad);
 t_matrix		draw_make_matrix_rot_y(double rad);
 t_matrix		draw_make_matrix_rot_z(double rad);
