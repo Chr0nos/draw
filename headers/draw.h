@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 21:23:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 21:35:58 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ t_m4			draw_matrix_multiply_axes_m4(t_v4d axes, t_v4d scale,
 t_v4f			draw_v4f_add(t_v4f a, t_v4f b);
 t_v4d			draw_v4d_add(t_v4d a, t_v4d b);
 t_v4d			draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m);
+t_v4f			draw_convert_v4d_to_v4f(t_v4d v);
 
 t_matrix		draw_make_matrix_rot_x(double rad);
 t_matrix		draw_make_matrix_rot_y(double rad);

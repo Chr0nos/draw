@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/01 16:44:17 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/01 21:35:42 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ OBJ=draw_line.o \
 	draw_vector_inv.o \
 	draw_make_matrix_m4.o \
 	draw_putvector.o \
-	draw_make_matrix_rot_m4.o
+	draw_make_matrix_rot_m4.o \
+	draw_convert_v4.o
 
 all: $(NAME)
 
