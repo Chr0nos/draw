@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:33:40 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 20:31:33 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 21:24:05 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ t_m4		draw_matrix_multiply_matrix_m4(t_m4 m1, const t_m4 *m2)
 		draw_matrix_multiply_m4(m1.x, m2),
 		draw_matrix_multiply_m4(m1.z, m2),
 		draw_matrix_multiply_m4(m1.y, m2),
-		draw_v4f_add(m1.w, m2->w)
+		draw_v4d_add(m1.w, m2->w)
 	});
 }
 
-t_m4		draw_matrix_multiply_axes_m4(t_v4f axes, t_v4f scale, t_v4f offset)
+t_m4		draw_matrix_multiply_axes_m4(t_v4d axes, t_v4d scale, t_v4d offset)
 {
 	t_m4			final;
-	const t_v4f		o = (t_v4f){0.0, 0.0, 0.0, 0.0};
+	const t_v4d		o = (t_v4d){0.0, 0.0, 0.0, 0.0};
 	const t_m4		mx = draw_make_matrix_m4_x(o, axes.x, scale);
 	const t_m4		my = draw_make_matrix_m4_y(o, axes.y, scale);
 	const t_m4		mz = draw_make_matrix_m4_z(o, axes.z, scale);

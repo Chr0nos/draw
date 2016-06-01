@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 21:13:52 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 21:23:09 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,17 @@ t_matrix		draw_matrix_multiply_axes(t_vector axes, t_vector scale,
 
 t_m4			draw_make_matrix_m4_identity(void);
 t_m4			draw_make_matrix_m4_iso(int x, int y, int w, int h);
-t_m4			draw_make_matrix_m4_ortho(const t_v4f s, const t_v4f c);
-t_v4f			draw_vector_transform_m4(t_v4f v, const t_m4 *m);
+t_m4			draw_make_matrix_m4_ortho(const t_v4d s, const t_v4d c);
+t_v4d			draw_vector_transform_m4(t_v4d v, const t_m4 *m);
 t_m4			draw_matrix_multiply_matrix_m4(t_m4 m1, const t_m4 *m2);
-t_m4			draw_make_matrix_m4_x(t_v4f pos, double rad, t_v4f scale);
-t_m4			draw_make_matrix_m4_y(t_v4f pos, double rad, t_v4f scale);
-t_m4			draw_make_matrix_m4_z(t_v4f pos, double rad, t_v4f scale);
-t_m4			draw_matrix_multiply_axes_m4(t_v4f axes, t_v4f scale,
-	t_v4f offset);
+t_m4			draw_make_matrix_m4_x(t_v4d pos, double rad, t_v4d scale);
+t_m4			draw_make_matrix_m4_y(t_v4d pos, double rad, t_v4d scale);
+t_m4			draw_make_matrix_m4_z(t_v4d pos, double rad, t_v4d scale);
+t_m4			draw_matrix_multiply_axes_m4(t_v4d axes, t_v4d scale,
+	t_v4d offset);
 t_v4f			draw_v4f_add(t_v4f a, t_v4f b);
+t_v4d			draw_v4d_add(t_v4d a, t_v4d b);
+t_v4d			draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m);
 
 t_matrix		draw_make_matrix_rot_x(double rad);
 t_matrix		draw_make_matrix_rot_y(double rad);
@@ -144,7 +146,6 @@ t_point			*draw_move_pxlist(t_point *tab, size_t size, int x, int y);
 t_point			*draw_matrix_topxtab(t_point *tab, size_t size, t_matrix *t);
 t_point			draw_raster_px(t_vector v, t_matrix *transform);
 t_vector		draw_matrix_multiply(t_vector point, const t_matrix *t);
-t_v4f			draw_matrix_multiply_m4(t_v4f pt, const t_m4 *m);
 t_line			draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform);
 t_rgb			draw_color_hsv(int t, float s, float v);
 int				draw_color_rgb2int(t_rgb *rgb);

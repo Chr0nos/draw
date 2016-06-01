@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:08:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 14:22:41 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 21:24:41 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ t_vector	draw_vector_transform(t_vector v, const t_matrix *m)
 	return (v);
 }
 
-t_v4f		draw_vector_transform_m4(t_v4f v, const t_m4 *m)
+t_v4d		draw_vector_transform_m4(t_v4d v, const t_m4 *m)
 {
 	v = draw_matrix_multiply_m4(v, m);
-	return ((t_v4f){
+	return ((t_v4d){
 		v.x + m->w.x,
 		v.y + m->w.y,
 		v.z + m->w.z,
