@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_make_matrix_projection.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:04:58 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/31 11:31:07 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/01 20:04:21 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,13 @@ t_matrix	draw_make_matrix_perspective(t_perspective s, t_vector c)
 	frustumdepth = s.fardist - s.neardist;
 	oneoverdepth = 1 / frustumdepth;
 	m.y = draw_make_vector(0.0f, 1 / tanf(0.5f * s.fov), 0.0f);
-	m.x = draw_make_vector((s.lefthanded ? 1 : -1) * m.y.y / s.aspect, 0.0f, 0.0f);
+	m.x = draw_make_vector((s.lefthanded ? 1 : -1) * m.y.y / s.aspect,
+		0.0f, 0.0f);
 	m.z = draw_make_vector(0.0f, 0.0f, s.fardist * oneoverdepth);
-	m.offset = draw_make_vector(c.x, c.z, (-s.fardist * s.neardist) * oneoverdepth);
+	m.offset = draw_make_vector(c.x, c.z,
+		(-s.fardist * s.neardist) * oneoverdepth);
 	return (m);
 }
-//
-    // General form of the Projection Matrix
-    //
-    // uh = Cot( fov/2 ) == 1/Tan(fov/2)
-    // uw / uh = 1/aspect
-    //
-    //   uw         0       0       0
-    //    0        uh       0       0
-    //    0         0      f/(f-n)  1
-    //    0         0    -fn/(f-n)  0
-    //
-    // Make result to be identity first
-
 
 t_matrix	draw_make_matrix_ortho(t_vector s, t_vector c)
 {

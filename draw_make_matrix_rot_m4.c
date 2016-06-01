@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 16:08:41 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 18:14:55 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 20:09:48 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_m4	draw_make_matrix_m4_x(t_v4f pos, double rad, t_v4f scale)
 	const float		c = (float)cos(rad);
 
 	return ((t_m4){
-		(t_v4f){scale.x, 0.0, 0.0, pos.x},
-		(t_v4f){0.0, c * scale.y, s * scale.z, pos.y},
-		(t_v4f){0.0, -s * scale.y, c * scale.z, pos.z},
-		(t_v4f){scale.x, scale.y, scale.z, pos.w}
+		(t_v4f){scale.x, 0.0, 0.0, 0.0},
+		(t_v4f){0.0, c * scale.y, s * scale.z, 0.0},
+		(t_v4f){0.0, -s * scale.y, c * scale.z, 0.0},
+		(t_v4f){pos.x, pos.y, pos.z, 1.0}
 	});
 }
 
@@ -32,10 +32,10 @@ t_m4	draw_make_matrix_m4_y(t_v4f pos, double rad, t_v4f scale)
 	const float		c = (float)cos(rad);
 
 	return ((t_m4){
-		(t_v4f){c, 0.0, -s * scale.y, pos.x},
-		(t_v4f){0.0, scale.y, 0.0, pos.y},
-		(t_v4f){s * scale.x, 0.0, c * scale.z, pos.z},
-		(t_v4f){scale.x, scale.y, scale.z, pos.w}
+		(t_v4f){c, 0.0, -s * scale.y, 0.0},
+		(t_v4f){0.0, scale.y, 0.0, 0.0},
+		(t_v4f){s * scale.x, 0.0, c * scale.z, 0.0},
+		(t_v4f){pos.x, pos.y, pos.z, 1.0}
 	});
 }
 
@@ -45,9 +45,9 @@ t_m4	draw_make_matrix_m4_z(t_v4f pos, double rad, t_v4f scale)
 	const float		c = (float)cos(rad);
 
 	return ((t_m4){
-		(t_v4f){c * scale.x, -s * scale.y, 0.0, pos.x},
-		(t_v4f){s * scale.x, c * scale.y, 0.0, pos.y},
-		(t_v4f){0.0, 0.0, scale.z, pos.z},
-		(t_v4f){scale.x, scale.y, scale.z, pos.w}
+		(t_v4f){c * scale.x, -s * scale.y, 0.0, 0.0},
+		(t_v4f){s * scale.x, c * scale.y, 0.0, 0.0},
+		(t_v4f){0.0, 0.0, scale.z, 0.0},
+		(t_v4f){pos.x, pos.y, pos.z, 1.0}
 	});
 }
