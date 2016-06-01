@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 16:44:54 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 18:02:06 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,12 @@ t_matrix		draw_matrix_multiply_axes(t_vector axes, t_vector scale,
 t_m4			draw_make_matrix_m4_identity(void);
 t_m4			draw_make_matrix_m4_iso(int x, int y, int w, int h);
 t_m4			draw_make_matrix_m4_ortho(const t_v4f s, const t_v4f c);
-t_m4			draw_make_matrix_rot_m4_x(double rad);
-t_m4			draw_make_matrix_rot_m4_y(double rad);
-t_m4			draw_make_matrix_rot_m4_z(double rad);
 t_v4f			draw_vector_transform_m4(t_v4f v, const t_m4 *m);
+t_m4			draw_matrix_multiply_matrix_m4(t_m4 m1, const t_m4 *m2);
+t_m4			draw_make_matrix_m4_x(t_v4f pos, double rad, t_v4f scale);
+t_m4			draw_make_matrix_m4_y(t_v4f pos, double rad, t_v4f scale);
+t_m4			draw_make_matrix_m4_z(t_v4f pos, double rad, t_v4f scale);
+t_v4f			draw_v4f_add(t_v4f a, t_v4f b);
 
 t_matrix		draw_make_matrix_rot_x(double rad);
 t_matrix		draw_make_matrix_rot_y(double rad);

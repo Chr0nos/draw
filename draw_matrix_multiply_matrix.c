@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:33:40 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/28 04:03:17 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 17:33:00 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,14 @@ t_matrix	draw_matrix_multiply_axes(t_vector axes, t_vector scale,
 		draw_matrix_multiply_matrix(mx, &my), &mz);
 	final.offset = offset;
 	return (final);
+}
+
+t_m4		draw_matrix_multiply_matrix_m4(t_m4 m1, const t_m4 *m2)
+{
+	return ((t_m4){
+		draw_matrix_multiply_m4(m1.x, m2),
+		draw_matrix_multiply_m4(m1.z, m2),
+		draw_matrix_multiply_m4(m1.y, m2),
+		draw_v4f_add(m1.w, m2->w)
+	});
 }
