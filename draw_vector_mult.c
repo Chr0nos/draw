@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_dot.c                                  :+:      :+:    :+:   */
+/*   draw_vector_mult.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/31 19:14:38 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/01 14:53:41 by snicolet         ###   ########.fr       */
+/*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/01 14:52:12 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-float	draw_vector_dot(t_vector a, t_vector b)
+t_vector	draw_vector_mult(t_vector a, t_vector b)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	return ((t_vector){a.x * b.x, a.y * b.y, a.z * b.z});
 }

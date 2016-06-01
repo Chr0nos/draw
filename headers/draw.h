@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/31 19:16:19 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/01 14:53:46 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,8 @@ t_vector		draw_vector_transform(t_vector v, const t_matrix *m);
 t_vector		draw_vector_add(t_vector a, t_vector b);
 t_vector		draw_vector_sub(t_vector a, t_vector b);
 t_vector		draw_vector_inv(t_vector a);
-double			draw_vector_dot(t_vector a, t_vector b);
+float			draw_vector_dot(t_vector a, t_vector b);
+t_vector		draw_vector_mult(t_vector a, t_vector b);
 
 t_line			draw_make_line(int x1, int y1, int x2, int y2);
 t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
