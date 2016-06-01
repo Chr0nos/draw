@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:08:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/31 17:39:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/01 14:22:41 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ t_v4f		draw_vector_transform_m4(t_v4f v, const t_m4 *m)
 		v.x + m->w.x,
 		v.y + m->w.y,
 		v.z + m->w.z,
-		v.x + m->w.x
+		v.w + m->w.w
 	});
 }
