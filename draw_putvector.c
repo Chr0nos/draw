@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:19:00 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/02 16:33:31 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/02 17:28:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	draw_putv4f(t_v4f v, unsigned int p)
 	s[0] = ft_dtoa((double)v.x, p);
 	s[1] = ft_dtoa((double)v.y, p);
 	s[2] = ft_dtoa((double)v.z, p);
-	s[3] = ft_dtoa((double)v.z, p);
+	s[3] = ft_dtoa((double)v.w, p);
 	ft_printf("(t_v4f){%s, %s, %s, %s}", s[0], s[1], s[2], s[3]);
 	ft_free_tab(s, 4);
 }
@@ -43,7 +43,7 @@ void	draw_putv4d(t_v4d v, unsigned int p)
 	s[0] = ft_dtoa(v.x, p);
 	s[1] = ft_dtoa(v.y, p);
 	s[2] = ft_dtoa(v.z, p);
-	s[3] = ft_dtoa(v.z, p);
+	s[3] = ft_dtoa(v.w, p);
 	ft_printf("(t_v4d){%s, %s, %s, %s}", s[0], s[1], s[2], s[3]);
 	ft_free_tab(s, 4);
 }
