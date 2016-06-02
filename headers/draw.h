@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/01 21:35:58 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/02 16:29:53 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,5 +172,6 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 void			draw_putvector(t_vector v, unsigned int p);
 void			draw_putv4f(t_v4f v, unsigned int p);
 void			draw_putv4d(t_v4d v, unsigned int p);
+void			draw_putm4(t_m4 m, unsigned int p);
 
 #endif
