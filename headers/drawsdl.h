@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 03:01:09 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/21 15:05:27 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:14:27 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct		s_drawsdl
 	SDL_Event		events;
 	SDL_Surface		*screen;
 	SDL_Texture		*screen_tex;
+	SDL_GLContext	glcontext;
 	t_point			geometry;
 	unsigned int	color;
 }					t_draw;

@@ -6,14 +6,26 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/28 04:05:20 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/07 18:30:55 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include "libft.h"
 
-int		draw_init(t_draw *d, t_point geometry, const char *title)
+int			draw_init_openglcontext(t_draw *d)
+{
+    d->glcontext = SDL_GL_CreateContext(d->win);
+    if (!d->glcontext )
+    {
+		ft_putendl("libdraw: failed to init opengl context");
+        return (-1);
+    }
+	ft_putendl("libdraw: opengl context ok");
+	return (0);
+}
+
+int			draw_init(t_draw *d, t_point geometry, const char *title)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
@@ -21,6 +33,10 @@ int		draw_init(t_draw *d, t_point geometry, const char *title)
 		return (-1);
 	}
 	d->geometry = geometry;
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	d->win = SDL_CreateWindow(title,
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 			geometry.x, geometry.y,
@@ -34,5 +50,6 @@ int		draw_init(t_draw *d, t_point geometry, const char *title)
 			SDL_RENDERER_SOFTWARE);
 	d->screen = NULL;
 	d->screen_tex = NULL;
-	return (1);
+	d->glcontext = NULL;
+	return (0);
 }
