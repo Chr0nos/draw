@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:26:52 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/08 18:38:31 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ t_m4			draw_matrix_multiply_axes_m4(t_v4d axes, t_v4d scale,
 	t_v4d offset);
 t_v4f			draw_v4f_add(t_v4f a, t_v4f b);
 t_v4d			draw_v4d_add(t_v4d a, t_v4d b);
+t_vector		draw_v4f_norm(t_vector v);
+t_vector		draw_v4d_norm(t_vector v);
 t_v4d			draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m);
 t_v4f			draw_convert_v4d_to_v4f(t_v4d v);
 t_m4			draw_make_rot_m4(t_v4d axis, double rad, t_v4d pos,
@@ -127,6 +129,7 @@ t_vector		draw_vector_sub(t_vector a, t_vector b);
 t_vector		draw_vector_inv(t_vector a);
 float			draw_vector_dot(t_vector a, t_vector b);
 t_vector		draw_vector_mult(t_vector a, t_vector b);
+t_vector		draw_vector_norm(t_vector v);
 
 t_line			draw_make_line(int x1, int y1, int x2, int y2);
 t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
