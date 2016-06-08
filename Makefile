@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alhote <alhote@student.42.fr>              +#+  +:+       +#+         #
+#    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/08 18:56:47 by alhote           ###   ########.fr        #
+#    Updated: 2016/06/08 22:39:19 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,8 @@ OBJ=draw_line.o \
 	draw_make_matrix_m4.o \
 	draw_putvector.o \
 	draw_make_matrix_rot_m4.o \
-	draw_convert_v4.o
+	draw_convert_v4.o \
+	draw_swap.o
 
 all: $(NAME)
 
