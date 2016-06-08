@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 14:21:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/04 17:59:12 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/09 01:28:17 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ t_vector	draw_matrix_multiply(t_vector point, const t_matrix *t)
 t_v4d		draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m)
 {
 	return ((t_v4d){
-		(m->x.x * pt.x) + (m->y.x * pt.y) + (m->z.x * pt.z) + (m->w.x * pt.w),
-		(m->x.y * pt.x) + (m->y.y * pt.y) + (m->z.y * pt.z) + (m->w.y * pt.w),
-		(m->x.z * pt.x) + (m->y.z * pt.y) + (m->z.z * pt.z) + (m->w.z * pt.w),
-		(m->x.w * pt.x) + (m->y.w * pt.y) + (m->z.w * pt.z) + (m->w.w * pt.w)
+		(m->x.x * pt.x) + (m->y.x * pt.y) + (m->z.x * pt.z),
+		(m->x.y * pt.x) + (m->y.y * pt.y) + (m->z.y * pt.z),
+		(m->x.z * pt.x) + (m->y.z * pt.y) + (m->z.z * pt.z),
+		(m->x.w * pt.x) + (m->y.w * pt.y) + (m->z.w * pt.z)
 	});
 }
