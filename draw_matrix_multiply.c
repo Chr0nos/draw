@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 14:21:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/09 01:33:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/09 01:41:39 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ t_v4d		draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m)
 		(m->x.x * pt.x) + (m->y.x * pt.y) + (m->z.x * pt.z),
 		(m->x.y * pt.x) + (m->y.y * pt.y) + (m->z.y * pt.z),
 		(m->x.z * pt.x) + (m->y.z * pt.y) + (m->z.z * pt.z),
-		(m->x.w * pt.x) + (m->y.w * pt.y) + (m->z.w * pt.z)
+		(m->x.w * pt.x) + (m->y.w * pt.y) + (m->z.w * pt.z) + (m->w.w * pt.w)
 	});
 }
