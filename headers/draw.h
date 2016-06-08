@@ -6,7 +6,7 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/08 18:38:31 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/08 18:47:42 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,13 @@ t_vector		draw_vector_inv(t_vector a);
 float			draw_vector_dot(t_vector a, t_vector b);
 t_vector		draw_vector_mult(t_vector a, t_vector b);
 t_vector		draw_vector_norm(t_vector v);
+
+float			draw_v4f_dot(t_v4f a, t_v4f b);
+double			draw_v4d_dot(t_v4d a, t_v4d b);
+t_v4d			draw_v4d_inv(t_v4d v);
+t_v4f			draw_v4f_inv(t_v4f v);
+t_v4d			draw_v4d_mult(t_v4d a, t_v4d b);
+t_v4f			draw_v4f_mult(t_v4f a, t_v4f b);
 
 t_line			draw_make_line(int x1, int y1, int x2, int y2);
 t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
