@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_vector_dot.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:14:38 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/08 18:34:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/09 22:32:51 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ double	draw_v4d_dot(t_v4d a, t_v4d b)
 {
 	return (a.x * b.x +
 			a.y * b.y +
-			a.y * a.y);
+			a.z * b.z);
 }
 
 float	draw_v4f_dot(t_v4f a, t_v4f b)
 {
 	return (a.x * b.x +
 			a.y * b.y +
-			a.y * a.y);
+			a.z * b.z);
 }
