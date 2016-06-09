@@ -6,7 +6,7 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 18:32:19 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/08 19:02:26 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/09 17:27:17 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,24 @@ t_vector		draw_vector_norm(t_vector v)
 
 t_v4f			draw_v4f_norm(t_v4f v)
 {
-	float	size;
+	const float	n = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
 
-	size = sqrtf(powf(v.x, 2.0) + powf(v.y, 2.0) + powf(v.z, 2.0));
-	return ((t_v4f){v.x / size, v.y / size, v.z / size, 1.0f});
+	return ((t_v4f){
+		v.x / n,
+		v.y / n,
+		v.z / n,
+		v.w
+	});
 }
 
 t_v4d			draw_v4d_norm(t_v4d v)
 {
-	double	size;
+	const double	n = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 
-	size = sqrt(pow(v.x, 2.0) + pow(v.y, 2.0) + pow(v.z, 2.0));
-	return ((t_v4d){v.x / size, v.y / size, v.z / size, 1.0});
+	return ((t_v4d){
+		v.x / n,
+		v.y / n,
+		v.z / n,
+		v.w
+	});
 }
