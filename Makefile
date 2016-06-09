@@ -6,14 +6,14 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/08 22:39:19 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/09 19:24:11 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC=clang
 FLAGS=-Wall -Wextra -Werror -Weverything -Ofast -Wno-padded -Wno-reserved-id-macro -Wno-documentation-unknown-command -Wno-documentation
 LIBFT=../libft/
-SDL=~/.brew/include/
+INC=-I $(LIBFT) -I../ -I./headers
 NAME=libdraw.a
 OBJ=draw_line.o \
 	draw_rect.o draw_rect_fill.o draw_rect_mist.o \
@@ -65,6 +65,6 @@ fclean: clean
 re: fclean all
 
 %.o: %.c
-	$(CC) -c $< $(FLAGS) -I $(LIBFT) -I../ -I./headers -I $(SDL)
+	$(CC) -c $< $(FLAGS) $(INC)
 
 .PHONY: re fclean clean
