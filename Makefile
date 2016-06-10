@@ -48,7 +48,8 @@ OBJ=draw_line.o \
 	draw_putvector.o \
 	draw_make_matrix_rot_m4.o \
 	draw_convert_v4.o \
-	draw_swap.o
+	draw_swap.o \
+	draw_quit.o
 
 all: $(NAME)
 
