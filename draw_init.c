@@ -15,6 +15,10 @@
 
 int			draw_init_openglcontext(t_draw *d)
 {
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     d->glcontext = SDL_GL_CreateContext(d->win);
     if (!d->glcontext )
     {
@@ -33,21 +37,17 @@ int			draw_init(t_draw *d, t_point geometry, const char *title)
 		return (-1);
 	}
 	d->geometry = geometry;
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	d->win = SDL_CreateWindow(title,
-			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-			geometry.x, geometry.y,
-			SDL_WINDOW_RESIZABLE);
+		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+		geometry.x, geometry.y,
+		SDL_WINDOW_RESIZABLE);
 	if (!d->win)
 	{
 		ft_putendl("error: failed to init sdl window");
 		return (-2);
 	}
 	d->render = SDL_CreateRenderer(d->win, -1,
-			SDL_RENDERER_SOFTWARE);
+		SDL_RENDERER_SOFTWARE);
 	d->screen = NULL;
 	d->screen_tex = NULL;
 	d->glcontext = NULL;
