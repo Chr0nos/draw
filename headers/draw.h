@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/17 16:32:13 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/17 17:20:18 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,5 +194,7 @@ void			draw_putv4d(t_v4d v, unsigned int p);
 void			draw_putm4(t_m4 m, unsigned int p);
 
 void			draw_quit(t_draw *d);
+
+unsigned int	draw_color_lerp(unsigned int a, unsigned int b, float pc);
 
 #endif
