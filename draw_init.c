@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/07 18:30:55 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/13 15:52:10 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,10 @@
 
 int			draw_init_openglcontext(t_draw *d)
 {
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
     d->glcontext = SDL_GL_CreateContext(d->win);
     if (!d->glcontext )
     {
-		ft_putendl("libdraw: failed to init opengl context");
+		ft_putendl(SDL_GetError());
         return (-1);
     }
 	ft_putendl("libdraw: opengl context ok");
@@ -36,6 +32,10 @@ int			draw_init(t_draw *d, t_point geometry, const char *title)
 		ft_putendl("error: failed to init sdl");
 		return (-1);
 	}
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	d->geometry = geometry;
 	d->win = SDL_CreateWindow(title,
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
