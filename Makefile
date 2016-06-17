@@ -6,10 +6,12 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/10 19:03:20 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/17 11:19:14 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+#OPSYS=$(shell uname -s)
+OPSYS=Darwin
 CC=clang
 FLAGS=-Wall -Wextra -Werror -Weverything -Ofast -Wno-padded -Wno-reserved-id-macro -Wno-documentation-unknown-command -Wno-documentation
 LIBFT=../libft/
@@ -51,6 +53,14 @@ OBJ=draw_line.o \
 	draw_swap.o \
 	draw_quit.o \
 	draw_vector_dist.o
+
+ifeq ($(OPSYS), Darwin)
+	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
+	SDLHERE=$(shell test -f $(SDLLIB))
+	ifeq (, $(SDLHERE))
+		INC += -I ~/.brew/include/
+	endif
+endif
 
 all: $(NAME)
 
