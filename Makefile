@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/17 11:19:14 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/17 11:38:11 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ OBJ=draw_line.o \
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
 	SDLHERE=$(shell test -f $(SDLLIB))
-	ifeq (, $(SDLHERE))
+	ifeq ("$(wildcard $(SDLLIB))", "")
 		INC += -I ~/.brew/include/
 	endif
 endif
