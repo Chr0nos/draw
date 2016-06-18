@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/17 17:20:18 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/18 13:01:21 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ t_v4d			draw_v4d_sub(t_v4d a, t_v4d b);
 t_v4f			draw_v4f_sub(t_v4f a, t_v4f b);
 void			draw_swap(double *a, double *b);
 double			draw_v4d_dist(const t_v4d a, const t_v4d b);
+double			draw_v4d_len(t_v4d v);
 
 t_line			draw_make_line(int x1, int y1, int x2, int y2);
 t_rect			draw_make_rect(int x1, int y1, int x2, int y2);
