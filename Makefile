@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/18 13:02:15 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/21 19:33:14 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,8 @@ OBJ=draw_line.o \
 	draw_quit.o \
 	draw_vector_dist.o \
 	draw_color_lerp.o \
-	draw_vector_len.o
+	draw_vector_len.o \
+	draw_blitsurface.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
