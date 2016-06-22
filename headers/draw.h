@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/21 19:34:39 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/22 18:59:05 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,6 +198,7 @@ void			draw_putm4(t_m4 m, unsigned int p);
 void			draw_quit(t_draw *d);
 
 unsigned int	draw_color_lerp(unsigned int a, unsigned int b, float pc);
+unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b, unsigned int max, float pc);
 
 void			draw_blitsurface(SDL_Surface *dest, SDL_Surface *src,
 	t_point offset);
