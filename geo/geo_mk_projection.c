@@ -6,11 +6,10 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:04:58 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 22:38:03 by qloubier         ###   ########.fr       */
+/*   Updated: 2016/06/23 22:52:38 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "geo.h"
 
 t_matrix	geo_mk_perspective(t_perspective s, t_vector c)
