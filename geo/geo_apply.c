@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_matrix_multiply.c                             :+:      :+:    :+:   */
+/*   geo_apply.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 14:21:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/09 01:41:39 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/23 22:28:19 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector	draw_matrix_multiply(t_vector point, const t_matrix *t)
+t_vector	geo_apply(t_vector point, const t_matrix *t)
 {
-	return (draw_make_vector(
+	return (geo_mkv(
 			(t->x.x * point.x) + (t->x.y * point.y) + (t->x.z * point.z),
 			(t->y.x * point.x) + (t->y.y * point.y) + (t->y.z * point.z),
 			(t->z.x * point.x) + (t->z.y * point.y) + (t->z.z * point.z)));
 }
 
-t_v4d		draw_matrix_multiply_m4(t_v4d pt, const t_m4 *m)
+t_v4d		geo_apply_m4(t_v4d pt, const t_m4 *m)
 {
 	return ((t_v4d){
 		(m->x.x * pt.x) + (m->y.x * pt.y) + (m->z.x * pt.z),

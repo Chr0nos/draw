@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_mult.c                                 :+:      :+:    :+:   */
+/*   geo_lenv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/08 18:38:16 by snicolet         ###   ########.fr       */
+/*   Created: 2016/06/18 13:00:25 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/18 13:01:54 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector	draw_vector_mult(t_vector a, t_vector b)
+double	geo_lenv4(t_v4d v)
 {
-	return ((t_vector){a.x * b.x, a.y * b.y, a.z * b.z});
-}
-
-t_v4d		draw_v4d_mult(t_v4d a, t_v4d b)
-{
-	return ((t_v4d){
-		a.x * b.x,
-		a.y * b.y,
-		a.z * b.z,
-		a.w * b.w
-	});
-}
-
-t_v4f		draw_v4f_mult(t_v4f a, t_v4f b)
-{
-	return ((t_v4f){
-		a.x * b.x,
-		a.y * b.y,
-		a.z * b.z,
-		a.w * b.w
-	});
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }

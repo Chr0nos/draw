@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_norm.c                                 :+:      :+:    :+:   */
+/*   geo_normv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector		draw_vector_norm(t_vector v)
+t_vector		geo_normv(t_vector v)
 {
 	float	size;
 
@@ -20,7 +20,7 @@ t_vector		draw_vector_norm(t_vector v)
 	return ((t_vector){v.x / size, v.y / size, v.z / size});
 }
 
-t_v4f			draw_v4f_norm(t_v4f v)
+t_v4f			geo_normv4f(t_v4f v)
 {
 	const float	n = sqrtf(v.x * v.x + v.y * v.y + v.z * v.z);
 
@@ -32,7 +32,7 @@ t_v4f			draw_v4f_norm(t_v4f v)
 	});
 }
 
-t_v4d			draw_v4d_norm(t_v4d v)
+t_v4d			geo_normv4(t_v4d v)
 {
 	const double	n = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 

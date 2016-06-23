@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_inv.c                                  :+:      :+:    :+:   */
+/*   geo_distv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/31 19:09:03 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/08 18:38:36 by snicolet         ###   ########.fr       */
+/*   Created: 2016/06/10 18:59:04 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/10 19:04:42 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector	draw_vector_inv(t_vector a)
+double		geo_distv4(const t_v4d a, const t_v4d b)
 {
-	return ((t_vector){-a.x, -a.y, -a.z});
-}
+	const double	dx = (b.x - a.x) * (b.x - a.x);
+	const double	dy = (b.y - a.y) * (b.y - a.y);
+	const double	dz = (b.z - a.z) * (b.z - a.z);
 
-t_v4d		draw_v4d_inv(t_v4d v)
-{
-	return ((t_v4d){-v.x, -v.y, -v.y, -v.w});
-}
-
-t_v4f		draw_v4f_inv(t_v4f v)
-{
-	return ((t_v4f){-v.x, -v.y, -v.y, -v.w});
+	return (sqrt(dx + dy + dz));
 }

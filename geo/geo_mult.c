@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_transform.c                            :+:      :+:    :+:   */
+/*   geo_multv.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/08 18:08:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/09 01:34:07 by snicolet         ###   ########.fr       */
+/*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/08 18:38:16 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector	draw_vector_transform(t_vector v, const t_matrix *m)
+t_vector	geo_multv(t_vector a, t_vector b)
 {
-	v = draw_matrix_multiply(v, m);
-	v.x += m->offset.x;
-	v.y += m->offset.y;
-	v.x += m->offset.z;
-	return (v);
+	return ((t_vector){a.x * b.x, a.y * b.y, a.z * b.z});
 }
 
-t_v4d		draw_vector_transform_m4(t_v4d v, const t_m4 *m)
+t_v4d		geo_multv4(t_v4d a, t_v4d b)
 {
-	v = draw_matrix_multiply_m4(v, m);
 	return ((t_v4d){
-		v.x + m->w.x * m->w.w * v.w,
-		v.y + m->w.y * m->w.w * v.w,
-		v.z + m->w.z * m->w.w * v.w,
-		v.w * m->w.w
+		a.x * b.x,
+		a.y * b.y,
+		a.z * b.z,
+		a.w * b.w
+	});
+}
+
+t_v4f		geo_multv4f(t_v4f a, t_v4f b)
+{
+	return ((t_v4f){
+		a.x * b.x,
+		a.y * b.y,
+		a.z * b.z,
+		a.w * b.w
 	});
 }

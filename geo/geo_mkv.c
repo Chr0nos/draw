@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_len.c                                  :+:      :+:    :+:   */
+/*   draw_make_vector.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/18 13:00:25 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/18 13:01:54 by snicolet         ###   ########.fr       */
+/*   Created: 2016/01/13 14:09:34 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/23 20:20:55 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-double	draw_v4d_len(t_v4d v)
+t_vector	geo_mkv(float x, float y, float z)
 {
-	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
+	t_vector	v;
+
+	v.x = x;
+	v.y = y;
+	v.z = z;
+	return (v);
+}
+
+t_v4d		geo_dtov4d(double x)
+{
+	return ((t_v4d){x, x, x, 1.0});
 }

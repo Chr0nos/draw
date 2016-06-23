@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
+#    By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/21 19:33:14 by snicolet         ###   ########.fr        #
+#    Updated: 2016/06/23 22:46:24 by qloubier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,34 +28,35 @@ OBJ=draw_line.o \
 	draw_putpoint.o \
 	draw_perimeter.o \
 	draw_move_pxlist.o \
-	draw_make_matrix.o \
-	draw_make_matrix_projection.o \
-	draw_make_vector.o \
-	draw_matrix_multiply.o \
-	draw_matrix_multiply_matrix.o \
 	draw_matrix_topxtab.o \
 	draw_pxtab.o \
 	draw_raster_px.o draw_raster_line.o \
-	draw_vector_transform.o \
 	draw_colors.o \
 	draw_init.o \
 	draw_getgeometry.o \
 	draw_reset_surface.o \
 	draw_pixelconvert.o \
 	draw_px_surface.o \
-	draw_make_matrix_rot.o \
-	draw_vector_add.o draw_vector_sub.o draw_vector_mult.o draw_vector_dot.o \
-	draw_vector_inv.o draw_vector_norm.o \
-	draw_make_matrix_m4.o \
-	draw_putvector.o \
-	draw_make_matrix_rot_m4.o \
 	draw_convert_v4.o \
 	draw_swap.o \
 	draw_quit.o \
-	draw_vector_dist.o \
 	draw_color_lerp.o \
-	draw_vector_len.o \
-	draw_blitsurface.o
+	draw_blitsurface.o\
+	geo/geo_mk_mat.o \
+	geo/geo_mk_projection.o \
+	geo/geo_mkv.o \
+	geo/geo_mult_mat.o \
+	geo/geo_mult.o \
+	geo/geo_apply.o \
+	geo/geo_trans.o \
+	geo/geo_mk_rot.o \
+	geo/geo_add.o geo/geo_sub.o geo/geo_mult.o geo/geo_dot.o \
+	geo/geo_inv.o geo/geo_norm.o \
+	geo/geo_mk4_mat.o \
+	geo/geo_mk4_rot.o \
+	geo/geo_dist.o \
+	geo/geo_putvector.o \
+	geo/geo_len.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
@@ -80,6 +81,6 @@ fclean: clean
 re: fclean all
 
 %.o: %.c
-	$(CC) -c $< $(FLAGS) $(INC)
+	$(CC) -c $< -o $@ $(FLAGS) $(INC)
 
 .PHONY: re fclean clean

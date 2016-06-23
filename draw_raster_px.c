@@ -18,6 +18,6 @@
 
 t_point		draw_raster_px(t_vector v, t_matrix *transform)
 {
-	v = draw_vector_transform(v, transform);
+	v = geo_trans(v, transform);
 	return ((t_point){(int)v.x, (int)v.y});
 }

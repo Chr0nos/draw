@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_dot.c                                  :+:      :+:    :+:   */
+/*   draw_vector_transform.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/31 19:14:38 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/09 22:32:51 by qloubier         ###   ########.fr       */
+/*   Created: 2016/02/08 18:08:44 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/23 22:10:30 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-float	draw_vector_dot(t_vector a, t_vector b)
+t_vector	geo_trans(t_vector v, const t_matrix *m)
 {
-	return (a.x * b.x + a.y * b.y + a.z * b.z);
+	v = geo_apply(v, m);
+	v.x += m->offset.x;
+	v.y += m->offset.y;
+	v.x += m->offset.z;
+	return (v);
 }
 
-double	draw_v4d_dot(t_v4d a, t_v4d b)
+t_v4d		geo_m4trans(t_v4d v, const t_m4 *m)
 {
-	return (a.x * b.x +
-			a.y * b.y +
-			a.z * b.z);
-}
-
-float	draw_v4f_dot(t_v4f a, t_v4f b)
-{
-	return (a.x * b.x +
-			a.y * b.y +
-			a.z * b.z);
+	v = geo_apply_m4(v, m);
+	return ((t_v4d){
+		v.x + m->w.x * m->w.w * v.w,
+		v.y + m->w.y * m->w.w * v.w,
+		v.z + m->w.z * m->w.w * v.w,
+		v.w * m->w.w
+	});
 }

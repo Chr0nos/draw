@@ -1,22 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_dist.c                                 :+:      :+:    :+:   */
+/*   geo_subv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/10 18:59:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/10 19:04:42 by snicolet         ###   ########.fr       */
+/*   Created: 2016/05/30 18:35:41 by snicolet          #+#    #+#             */
+/*   Updated: 2016/06/08 18:48:34 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-double		draw_v4d_dist(const t_v4d a, const t_v4d b)
+t_vector	geo_subv(t_vector a, t_vector b)
 {
-	const double	dx = (b.x - a.x) * (b.x - a.x);
-	const double	dy = (b.y - a.y) * (b.y - a.y);
-	const double	dz = (b.z - a.z) * (b.z - a.z);
+	return ((t_vector){a.x - b.x, a.y - b.y, a.z - b.z});
+}
 
-	return (sqrt(dx + dy + dz));
+t_v4d		geo_subv4(t_v4d a, t_v4d b)
+{
+	return ((t_v4d){
+		a.x - b.x,
+		a.y - b.y,
+		a.z - b.z,
+		a.w - b.w
+	});
+}
+
+t_v4f		geo_subv4f(t_v4f a, t_v4f b)
+{
+	return ((t_v4f){
+		a.x - b.x,
+		a.y - b.y,
+		a.z - b.z,
+		a.w - b.w
+	});
 }

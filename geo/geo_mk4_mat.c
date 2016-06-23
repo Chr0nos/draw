@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_make_matrix_m4.c                              :+:      :+:    :+:   */
+/*   geo_mk_m4.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_m4	draw_make_matrix_m4_identity(void)
+t_m4	geo_mk4_identity(void)
 {
 	return ((t_m4) {
 		(t_v4d){1.0, 0.0, 0.0, 0.0},
@@ -22,7 +22,7 @@ t_m4	draw_make_matrix_m4_identity(void)
 	});
 }
 
-t_m4	draw_make_matrix_m4_iso(int x, int y, int w, int h)
+t_m4	geo_mk4_iso(int x, int y, int w, int h)
 {
 	return ((t_m4) {
 		(t_v4d){(double)w, 0.0, 0.0, 0.0},
@@ -32,7 +32,7 @@ t_m4	draw_make_matrix_m4_iso(int x, int y, int w, int h)
 	});
 }
 
-t_m4	draw_make_matrix_m4_ortho(const t_v4d s, const t_v4d c)
+t_m4	geo_mk4_ortho(const t_v4d s, const t_v4d c)
 {
 	return ((t_m4){
 		(t_v4d){s.x, 0.0, 0.0, c.x},

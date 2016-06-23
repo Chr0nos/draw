@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_matrix_topxtab.c                              :+:      :+:    :+:   */
+/*   geo_dotv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 14:58:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 22:06:11 by qloubier         ###   ########.fr       */
+/*   Created: 2016/05/31 19:14:38 by alhote            #+#    #+#             */
+/*   Updated: 2016/06/09 22:32:51 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
-#include <string.h>
-#include <math.h>
+#include "geo.h"
 
-t_point		*draw_matrix_topxtab(t_point *tab, size_t size, t_matrix *t)
+float	geo_dotv(t_vector a, t_vector b)
 {
-	size_t		p;
-	t_vector	v;
+	return (a.x * b.x + a.y * b.y + a.z * b.z);
+}
 
-	p = 0;
-	while (p < size)
-	{
-		v = geo_mkv((float)tab[p].x, (float)tab[p].y, 0.0f);
-		v = geo_apply(v, t);
-		tab[p].x = (int)lroundf(v.x);
-		tab[p].y = (int)lroundf(v.y);
-		p++;
-	}
-	return (tab);
+double	geo_dotv4(t_v4d a, t_v4d b)
+{
+	return (a.x * b.x +
+			a.y * b.y +
+			a.z * b.z);
+}
+
+float	geo_dotv4f(t_v4f a, t_v4f b)
+{
+	return (a.x * b.x +
+			a.y * b.y +
+			a.z * b.z);
 }

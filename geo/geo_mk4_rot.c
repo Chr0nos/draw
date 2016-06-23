@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_make_matrix_rot_m4.c                          :+:      :+:    :+:   */
+/*   geo_mk_rot_m4.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 #include <math.h>
 
-t_m4	draw_make_matrix_m4_x(t_v4d pos, double rad, t_v4d scale)
+t_m4	geo_mk4_rotx(t_v4d pos, double rad, t_v4d scale)
 {
 	const double		s = sin(rad);
 	const double		c = cos(rad);
@@ -26,7 +26,7 @@ t_m4	draw_make_matrix_m4_x(t_v4d pos, double rad, t_v4d scale)
 	});
 }
 
-t_m4	draw_make_matrix_m4_y(t_v4d pos, double rad, t_v4d scale)
+t_m4	geo_mk4_roty(t_v4d pos, double rad, t_v4d scale)
 {
 	const double		s = sin(rad);
 	const double		c = cos(rad);
@@ -39,7 +39,7 @@ t_m4	draw_make_matrix_m4_y(t_v4d pos, double rad, t_v4d scale)
 	});
 }
 
-t_m4	draw_make_matrix_m4_z(t_v4d pos, double rad, t_v4d scale)
+t_m4	geo_mk4_rotz(t_v4d pos, double rad, t_v4d scale)
 {
 	const double		s = sin(rad);
 	const double		c = cos(rad);
@@ -52,7 +52,7 @@ t_m4	draw_make_matrix_m4_z(t_v4d pos, double rad, t_v4d scale)
 	});
 }
 
-t_m4	draw_make_euler_m4(t_v4d euler, t_v4d pos, t_v4d scale)
+t_m4	geo_mk4_euler(t_v4d euler, t_v4d pos, t_v4d scale)
 {
 	const t_v4d		s = (t_v4d){sin(euler.x), sin(euler.y), sin(euler.z), 0.0};
 	const t_v4d		c = (t_v4d){cos(euler.x), cos(euler.y), cos(euler.z), 0.0};
@@ -74,7 +74,7 @@ t_m4	draw_make_euler_m4(t_v4d euler, t_v4d pos, t_v4d scale)
 	});
 }
 
-t_m4	draw_make_rot_m4(t_v4d axis, double rad, t_v4d pos, t_v4d scale)
+t_m4	geo_mk4_rot(t_v4d axis, double rad, t_v4d pos, t_v4d scale)
 {
 	const double		s = sin(rad);
 	const double		c = cos(rad);

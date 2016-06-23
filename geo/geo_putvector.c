@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_putvector.c                                   :+:      :+:    :+:   */
+/*   geo_putvector.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 #include "libft.h"
 
-void	draw_putvector(t_vector v, unsigned int p)
+void	geo_putvector(t_vector v, unsigned int p)
 {
 	char	*s[3];
 
@@ -24,7 +24,7 @@ void	draw_putvector(t_vector v, unsigned int p)
 	ft_free_tab(s, 3);
 }
 
-void	draw_putv4f(t_v4f v, unsigned int p)
+void	geo_putv4f(t_v4f v, unsigned int p)
 {
 	char	*s[4];
 
@@ -36,7 +36,7 @@ void	draw_putv4f(t_v4f v, unsigned int p)
 	ft_free_tab(s, 4);
 }
 
-void	draw_putv4d(t_v4d v, unsigned int p)
+void	geo_putv4d(t_v4d v, unsigned int p)
 {
 	char	*s[4];
 
@@ -48,15 +48,15 @@ void	draw_putv4d(t_v4d v, unsigned int p)
 	ft_free_tab(s, 4);
 }
 
-void	draw_putm4(t_m4 m, unsigned int p)
+void	geo_putm4(t_m4 m, unsigned int p)
 {
 	ft_putstr("(t_m4){\n\t");
-	draw_putv4d(m.x, p);
+	geo_putv4d(m.x, p);
 	ft_putstr(",\n\t");
-	draw_putv4d(m.y, p);
+	geo_putv4d(m.y, p);
 	ft_putstr(",\n\t");
-	draw_putv4d(m.z, p);
+	geo_putv4d(m.z, p);
 	ft_putstr(",\n\t");
-	draw_putv4d(m.w, p);
+	geo_putv4d(m.w, p);
 	ft_putstr("\n};");
 }

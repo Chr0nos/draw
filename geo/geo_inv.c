@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_make_vector.c                                 :+:      :+:    :+:   */
+/*   geo_invv.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/13 14:09:34 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/18 13:09:32 by snicolet         ###   ########.fr       */
+/*   Created: 2016/05/31 19:09:03 by alhote            #+#    #+#             */
+/*   Updated: 2016/06/08 18:38:36 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "draw.h"
+#include "geo.h"
 
-t_vector	draw_make_vector(float x, float y, float z)
+t_vector	geo_invv(t_vector a)
 {
-	t_vector	v;
-
-	v.x = x;
-	v.y = y;
-	v.z = z;
-	return (v);
+	return ((t_vector){-a.x, -a.y, -a.z});
 }
 
-t_v4d		draw_dtov4d(double x)
+t_v4d		geo_invv4(t_v4d v)
 {
-	return ((t_v4d){x, x, x, 1.0});
+	return ((t_v4d){-v.x, -v.y, -v.y, -v.w});
+}
+
+t_v4f		geo_invv4f(t_v4f v)
+{
+	return ((t_v4f){-v.x, -v.y, -v.y, -v.w});
 }
