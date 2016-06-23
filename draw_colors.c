@@ -6,19 +6,11 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/15 23:34:49 by snicolet          #+#    #+#             */
-/*   Updated: 2016/03/31 16:43:56 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/23 16:30:43 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-
-inline static void	set_rgb_vals(t_rgb *rgb, unsigned char r, unsigned char g,
-		unsigned char b)
-{
-	rgb->r = r;
-	rgb->g = g;
-	rgb->b = b;
-}
 
 inline static void	set_colors(t_rgb *rgb, float *vals, const int ti)
 {
@@ -28,24 +20,25 @@ inline static void	set_colors(t_rgb *rgb, float *vals, const int ti)
 	const unsigned char		v = (unsigned char)(vals[3] * 255.0f);
 
 	if (ti == 0)
-		set_rgb_vals(rgb, v, n, l);
+		*rgb = (t_rgb){0xff, v, n, l};
 	else if (ti == 1)
-		set_rgb_vals(rgb, m, v, l);
+		*rgb = (t_rgb){0xff, m, v, l};
 	else if (ti == 2)
-		set_rgb_vals(rgb, l, v, n);
+		*rgb = (t_rgb){0xff, l, v, n};
 	else if (ti == 3)
-		set_rgb_vals(rgb, l, m, v);
+		*rgb = (t_rgb){0xff, l, m, v};
 	else if (ti == 4)
-		set_rgb_vals(rgb, n, l, v);
+		*rgb = (t_rgb){0xff, n, l, v};
 	else if (ti == 5)
-		set_rgb_vals(rgb, v, l, m);
+		*rgb = (t_rgb){0xff, v, l, m};
 }
 
-static void			set_rgb(t_rgb *rgb, int t, float s, float v)
+unsigned int		draw_color_hsv(int t, float s, float v)
 {
-	int		ti;
-	float	f;
-	float	vals[4];
+	unsigned int	color;
+	int				ti;
+	float			f;
+	float			vals[4];
 
 	if (t < 0)
 		t *= -1;
@@ -57,15 +50,8 @@ static void			set_rgb(t_rgb *rgb, int t, float s, float v)
 	vals[1] = v * (1.0f - f * v);
 	vals[2] = v * (1.0f - (1.0f - f) * s);
 	vals[3] = v;
-	set_colors(rgb, vals, ti);
-}
-
-t_rgb				draw_color_hsv(int t, float s, float v)
-{
-	t_rgb	rgb;
-
-	set_rgb(&rgb, t, s, v);
-	return (rgb);
+	set_colors((t_rgb*)&color, vals, ti);
+	return (color);
 }
 
 int					draw_color_rgb2int(t_rgb *rgb)

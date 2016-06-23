@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/22 18:59:05 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/23 16:30:44 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ t_point			*draw_matrix_topxtab(t_point *tab, size_t size, t_matrix *t);
 t_point			draw_raster_px(t_vector v, t_matrix *transform);
 t_vector		draw_matrix_multiply(t_vector point, const t_matrix *t);
 t_line			draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform);
-t_rgb			draw_color_hsv(int t, float s, float v);
+unsigned int	draw_color_hsv(int t, float s, float v);
 int				draw_color_rgb2int(t_rgb *rgb);
 void			draw_setcolor(t_draw *d, unsigned int color);
 
