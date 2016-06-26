@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/13 15:52:10 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/26 16:31:59 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 int			draw_init_openglcontext(t_draw *d)
 {
-    d->glcontext = SDL_GL_CreateContext(d->win);
-    if (!d->glcontext )
-    {
+	d->glcontext = SDL_GL_CreateContext(d->win);
+	if (!d->glcontext)
+	{
 		ft_putendl(SDL_GetError());
-        return (-1);
-    }
+		return (-1);
+	}
 	ft_putendl("libdraw: opengl context ok");
 	return (0);
 }
