@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+         #
+#    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/06/23 22:46:24 by qloubier         ###   ########.fr        #
+#    Updated: 2016/06/26 19:49:24 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ OBJ=draw_line.o \
 	draw_swap.o \
 	draw_quit.o \
 	draw_color_lerp.o \
-	draw_blitsurface.o\
+	draw_blitsurface.o \
+	draw_make_surface.o \
 	geo/geo_mk_mat.o \
 	geo/geo_mk_projection.o \
 	geo/geo_mkv.o \
