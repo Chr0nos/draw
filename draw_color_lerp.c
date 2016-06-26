@@ -6,13 +6,14 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 17:18:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/22 18:59:01 by alhote           ###   ########.fr       */
+/*   Updated: 2016/06/26 14:34:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b, unsigned int max, float pc)
+unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b,
+		unsigned int max, float pc)
 {
 	t_v3f	colors;
 
