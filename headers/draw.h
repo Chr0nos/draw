@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/26 19:51:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/27 13:14:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,8 @@ unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b,
 
 void			draw_blitsurface(SDL_Surface *dest, SDL_Surface *src,
 	t_point offset);
+void			draw_blitsurface_opc(SDL_Surface *dest, SDL_Surface *src,
+		t_point offset, const float opc);
 SDL_Surface		*draw_make_surface(const t_point size);
 
 #endif
