@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   geo_mult_mat.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:33:40 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 22:40:12 by qloubier         ###   ########.fr       */
+/*   Updated: 2016/06/28 01:04:21 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ t_matrix	geo_mk_rotxyz(t_vector axes, t_vector scale,
 	const t_matrix	my = geo_mk_roty(o, axes.y, scale);
 	const t_matrix	mz = geo_mk_rotz(o, axes.z, scale);
 
-	final = geo_mult_m3(
-		geo_mult_m3(mx, &my), &mz);
+	final = geo_mult_m3(geo_mult_m3(mx, &my), &mz);
 	final.offset = offset;
 	return (final);
 }
@@ -61,8 +60,7 @@ t_m4		geo_mk4_rotxyz(t_v4d axes, t_v4d scale, t_v4d offset)
 	const t_m4		my = geo_mk4_roty(o, axes.y, scale);
 	const t_m4		mz = geo_mk4_rotz(o, axes.z, scale);
 
-	final = geo_mult_m4(
-		geo_mult_m4(mx, &my), &mz);
+	final = geo_mult_m4(geo_mult_m4(mx, &my), &mz);
 	final.w = offset;
 	return (final);
 }
