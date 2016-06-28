@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/06/26 16:28:25 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/06/28 13:01:13 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_m4			geo_mk4_iso(int x, int y, int w, int h);
 t_m4			geo_mk4_ortho(const t_v4d s, const t_v4d c);
 t_v4d			geo_m4trans(t_v4d v, const t_m4 *m);
 t_m4			geo_mult_m4(t_m4 m1, const t_m4 *m2);
+t_m4			geo_inv_m4(const t_m4 m);
 t_m4			geo_mk4_rotx(t_v4d pos, double rad, t_v4d scale);
 t_m4			geo_mk4_roty(t_v4d pos, double rad, t_v4d scale);
 t_m4			geo_mk4_rotz(t_v4d pos, double rad, t_v4d scale);
