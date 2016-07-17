@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   geo_inv_mat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/28 12:49:35 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/28 14:03:30 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/17 19:46:35 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_m4	geo_inv_m4(const t_m4 m)
 		(t_v4d){
 			((m.y.y * m.z.z) - (m.y.z * m.z.y)) * coef,
 			((m.z.y * m.x.z) - (m.x.y * m.z.z)) * coef,
-			((m.x.y * m.x.z) - (m.x.z * m.y.y)) * coef,
+			((m.x.y * m.y.z) - (m.x.z * m.y.y)) * coef,
 			0.0},
 		(t_v4d){
 			((m.z.x * m.y.z) - (m.y.x * m.z.z)) * coef,
