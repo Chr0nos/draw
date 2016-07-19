@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_pixelconvert.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 19:29:56 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/28 04:05:01 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/19 15:31:09 by qloubier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@ static unsigned int	draw_pixelconvert(const int bpp, size_t pos,
 {
 	unsigned int	pixel;
 
+	pixel = 0xFF000000;
 	if (bpp == 1)
 	{
-		pixel = (unsigned int)p[pos];
+		pixel |= (unsigned int)p[pos];
 		pixel |= pixel << 8 | pixel << 16;
 	}
 	else if (bpp == 2)
 	{
-		pixel = ((const unsigned short*)src)[pos];
+		pixel |= ((const unsigned short*)src)[pos];
 		pixel |= pixel << 16;
 	}
 	else if (bpp == 3)
 	{
 		p = (const unsigned char *)((unsigned long)src + pos);
 		if (SDL_BYTEORDER == SDL_BIG_ENDIAN)
-			pixel = (unsigned int)((p[0] << 16) | (p[1] << 8) | p[2]);
+			pixel |= (unsigned int)((p[0] << 16) | (p[1] << 8) | p[2]);
 		else
-			pixel = (unsigned int)(p[0] | (p[1] << 8) | (p[2] << 16));
+			pixel |= (unsigned int)(p[0] | (p[1] << 8) | (p[2] << 16));
 	}
 	else
 		pixel = 0;
