@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/26 16:31:59 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/24 20:00:26 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			draw_init(t_draw *d, t_point geometry, const char *title)
 	d->win = SDL_CreateWindow(title,
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		geometry.x, geometry.y,
-		SDL_WINDOW_RESIZABLE);
+		SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 	if (!d->win)
 	{
 		ft_putendl("error: failed to init sdl window");
