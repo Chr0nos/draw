@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw_make_px.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 11:26:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/01/12 11:27:30 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:18:07 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-t_point		draw_make_px(int x, int y)
+t_v2i		draw_make_px(int x, int y)
 {
-	return ((t_point){x, y});
+	return ((t_v2i){x, y});
 }

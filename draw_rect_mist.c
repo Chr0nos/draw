@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 21:44:55 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:31:25 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:19:10 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	draw_rect_mist(t_draw *d, const t_rect rect, size_t pixels,
 	unsigned int color)
 {
-	t_point	p;
+	t_v2i	p;
 	int		dx;
 	int		dy;
 

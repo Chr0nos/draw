@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 17:08:36 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/26 22:14:46 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 00:26:26 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static double			perlin_liss(t_v2i px, t_v2f geo, const t_v4ui *ponder)
 	li[1] = ponder->z + c.x * (ponder->z - ponder->w);
 	return ((double)(li[0] + c.y * (li[1] - li[0])));
 }
-
+#include <stdio.h>
 double					draw_perlin_noise(t_v2f geo, float res)
 {
 	float			g2[8][2];
@@ -81,5 +81,6 @@ double					draw_perlin_noise(t_v2f geo, float res)
 		(t_v2i){(int)(geo.x - (float)(px.x + 1)),
 			(int)(geo.y - (float)(px.y + 1))},
 		(const float *)g2[(v & 0xff000000) >> 24]);
+	printf("ponders: %u %u %u %u\n", ponder.x, ponder.y, ponder.z, ponder.w);
 	return (perlin_liss(px, geo, &ponder));
 }

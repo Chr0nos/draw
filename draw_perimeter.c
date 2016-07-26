@@ -6,17 +6,17 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 11:14:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:32:35 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:18:32 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-void	draw_perimeter(t_draw *d, const t_point *tab, size_t size,
+void	draw_perimeter(t_draw *d, const t_v2i *tab, size_t size,
 	unsigned int color)
 {
-	const t_point	*point;
-	const t_point	*lpoint;
+	const t_v2i		*point;
+	const t_v2i		*lpoint;
 	size_t			p;
 
 	if (!size)

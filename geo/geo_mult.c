@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/26 16:26:43 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:03:10 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,9 @@ t_v4f		geo_multv4f(t_v4f a, t_v4f b)
 		a.z * b.z,
 		a.w * b.w
 	});
+}
+
+t_v2f		geo_v2f_mult(t_v2f px, const float x)
+{
+	return ((t_v2f){px.x * x, px.y * x});
 }

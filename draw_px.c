@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 14:13:28 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/28 04:04:11 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:18:52 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void			draw_setcolor(t_draw *d, unsigned int color)
 	d->color = color;
 }
 
-void			draw_pxi(unsigned int *pixels, const t_point px,
+void			draw_pxi(unsigned int *pixels, const t_v2i px,
 	const unsigned int width, const unsigned int color)
 {
 	pixels[(unsigned int)px.y * width + (unsigned int)px.x] = color;
 }
 
-void			draw_px(t_draw *d, const t_point px)
+void			draw_px(t_draw *d, const t_v2i px)
 {
 	const int	bpp = (int)(d->screen->format->BytesPerPixel);
 	Uint8		*p;
@@ -37,13 +37,13 @@ void			draw_px(t_draw *d, const t_point px)
 		*(Uint32 *)(unsigned long)p = d->color;
 }
 
-void			draw_pxc(t_draw *d, const t_point px, unsigned int color)
+void			draw_pxc(t_draw *d, const t_v2i px, unsigned int color)
 {
 	d->color = color;
 	draw_px(d, px);
 }
 
-unsigned int	draw_getpx(t_draw *d, t_point px)
+unsigned int	draw_getpx(t_draw *d, t_v2i px)
 {
 	return (draw_getpxs(d->screen, px));
 }

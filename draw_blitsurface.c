@@ -6,18 +6,18 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/21 19:32:33 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/17 20:40:47 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:17:28 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
 void		draw_blitsurface(SDL_Surface *dest, SDL_Surface *src,
-	t_point offset)
+	t_v2i offset)
 {
 	unsigned int	*dest_pixels;
 	unsigned int	*src_pixels;
-	t_point			px;
+	t_v2i			px;
 
 	dest_pixels = dest->pixels;
 	src_pixels = src->pixels;
@@ -34,11 +34,11 @@ void		draw_blitsurface(SDL_Surface *dest, SDL_Surface *src,
 }
 
 void		draw_blitsurface_dbg_alpha(SDL_Surface *dest, SDL_Surface *src,
-	t_point offset)
+	t_v2i offset)
 {
 	unsigned int	*dest_pixels;
 	unsigned int	*src_pixels;
-	t_point			px;
+	t_v2i			px;
 	unsigned int	color;
 
 	dest_pixels = dest->pixels;
@@ -58,13 +58,13 @@ void		draw_blitsurface_dbg_alpha(SDL_Surface *dest, SDL_Surface *src,
 }
 
 void		draw_blitsurface_opc(SDL_Surface *dest, SDL_Surface *src,
-	t_point offset, const float opc)
+	t_v2i offset, const float opc)
 {
 	unsigned int	*spx;
 	unsigned int	*dpx;
 	unsigned int	*dest_pixels;
 	unsigned int	*src_pixels;
-	t_point			px;
+	t_v2i			px;
 
 	if (opc >= 1.0f)
 	{

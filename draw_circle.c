@@ -6,18 +6,18 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 13:18:11 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/03 21:55:53 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:17:32 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 
-static void		draw_circle_px(t_draw *d, const t_point *p,
+static void		draw_circle_px(t_draw *d, const t_v2i *p,
 	const t_circle *c)
 {
 	const int	tx[8] = { p->x, p->y, -p->x, -p->y, p->x, p->y, -p->x, -p->y };
 	const int	ty[8] = { p->y, p->x, p->y, p->x, -p->y, -p->x, -p->y, -p->x };
-	t_point		px;
+	t_v2i		px;
 	int			idx;
 
 	idx = 8;
@@ -32,7 +32,7 @@ static void		draw_circle_px(t_draw *d, const t_point *p,
 void			draw_circle(t_draw *d, const t_circle *circle,
 	unsigned int color)
 {
-	t_point	p;
+	t_v2i	p;
 	int		m;
 
 	draw_setcolor(d, color);

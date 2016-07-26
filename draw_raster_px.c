@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 15:15:17 by snicolet          #+#    #+#             */
-/*   Updated: 2016/05/30 19:27:45 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:19:04 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 ** this function convert a 3d vector into a 2d point using Z
 */
 
-t_point		draw_raster_px(t_vector v, t_matrix *transform)
+t_v2i		draw_raster_px(t_vector v, t_matrix *transform)
 {
 	v = geo_trans(v, transform);
-	return ((t_point){(int)v.x, (int)v.y});
+	return ((t_v2i){(int)v.x, (int)v.y});
 }

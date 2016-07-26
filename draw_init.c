@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/24 20:00:26 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:17:51 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			draw_init_openglcontext(t_draw *d)
 	return (0);
 }
 
-int			draw_init(t_draw *d, t_point geometry, const char *title)
+int			draw_init(t_draw *d, t_v2i geometry, const char *title)
 {
 	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{

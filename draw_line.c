@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 12:28:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/04/04 02:43:02 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 01:17:57 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ inline static void	draw_line_vertical(t_draw *d, t_line line,
 }
 
 inline static void	draw_line_bresemham(t_draw *d, t_line line,
-	t_point *variance)
+	t_v2i *variance)
 {
 	int		err;
 
@@ -60,7 +60,7 @@ inline static void	draw_line_bresemham(t_draw *d, t_line line,
 
 void				draw_line(t_draw *d, t_line line, unsigned int color)
 {
-	t_point		variance;
+	t_v2i		variance;
 
 	d->color = color;
 	variance.x = (line.end.x - line.start.x < 0) ? -1 : 1;
