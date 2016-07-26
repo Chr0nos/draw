@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/17 20:37:06 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/26 20:57:10 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "colors.h"
 # include "tpoint.h"
 # include "drawsdl.h"
+# include "t_v2.h"
 
 enum			e_color
 {
