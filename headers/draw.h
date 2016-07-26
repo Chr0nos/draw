@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/26 20:57:10 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/26 22:13:58 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "tpoint.h"
 # include "drawsdl.h"
 # include "t_v2.h"
+# include "t_v3.h"
+# include "t_v4.h"
 
 enum			e_color
 {
@@ -132,6 +134,7 @@ void			draw_blitsurface_opc(SDL_Surface *dest, SDL_Surface *src,
 SDL_Surface		*draw_make_surface(const t_point size);
 void			draw_blitsurface_dbg_alpha(SDL_Surface *dest, SDL_Surface *src,
 	t_point offset);
+double			draw_perlin_noise(t_v2f geo, float res);
 
 
 #endif
