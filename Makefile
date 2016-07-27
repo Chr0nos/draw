@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/07/26 21:57:51 by snicolet         ###   ########.fr        #
+#    Updated: 2016/07/27 02:03:30 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ OBJ=draw_line.o \
 	draw_color_lerp.o \
 	draw_blitsurface.o \
 	draw_make_surface.o \
-	draw_perlin.o \
 	geo/geo_mk_mat.o \
 	geo/geo_mk_projection.o \
 	geo/geo_mkv.o \
@@ -59,7 +58,8 @@ OBJ=draw_line.o \
 	geo/geo_dist.o \
 	geo/geo_putvector.o \
 	geo/geo_len.o \
-	geo/geo_inv_mat.o
+	geo/geo_inv_mat.o \
+	geo/geo_perlin.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
