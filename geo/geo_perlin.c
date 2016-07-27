@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 00:44:15 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/27 02:19:33 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/27 03:10:57 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_v2f		smoothstep(t_v2f a, t_v2f b, float x)
 {
 	const float t = geo_clamp((x - edge0) / (edge1 - edge0), 0.0f, 1.0f);
 
-	return t * t * (3.0 - 2.0 * t);
+	return (t * t * (3.0f - 2.0f * t));
 }
 
 static float		noise(t_v2f n)
@@ -57,11 +57,9 @@ static float		noise(t_v2f n)
 		(t_v2f){0.0f, 0.0f},
 		(t_v2f){1.0f, 1.0f},
 		fract(n));
-    h1 = mix(r(fn), r(geo_addv2f(
-			(t_v2f){fn.x, fn.y},
-			(t_v2f){1.0f, 0.0f})
-		), sn.x);
-	hd = mix(r((t_v2f){fn.x, fn.y + 1.0}), r((t_v2f){fn.x + 1.0f, fn.y + 1.0f}),
+    h1 = mix(r(fn), r(geo_addv2f((t_v2f){fn.x, fn.y}, (t_v2f){1.0f, 0.0f})),
+		sn.x);
+	h2 = mix(r((t_v2f){fn.x, fn.y + 1.0}), r((t_v2f){fn.x + 1.0f, fn.y + 1.0f}),
 		sn.x);
     return (mix(h1, h2, sn.y));
 }
