@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 00:44:15 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/28 20:56:04 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/07/28 22:30:40 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 inline static float	fract(float x)
 {
 	return (x - (int)x);
+}
+
+inline static t_v2f	fractv(t_v2f v)
+{
+	return (t_v2f){
+		fract(v.x),
+		fract(v.y)
+	};
 }
 
 static float		r(t_v2f n)
@@ -60,7 +68,7 @@ static float		noise(t_v2f n)
 	sn = smoothstep(
 			(t_v2f){0.0f, 0.0f},
 			(t_v2f){1.0f, 1.0f},
-			fract(n));
+			fractv(n));
     h1 = mix(r(fn), r(geo_addv2f(
 			(t_v2f){fn.x, fn.y},
 			(t_v2f){1.0f, 0.0f})
