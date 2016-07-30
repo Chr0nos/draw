@@ -34,12 +34,12 @@ t_v4f			geo_normv4f(t_v4f v)
 
 t_v4d			geo_normv4(t_v4d v)
 {
-	const double	n = sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+	const double	n = 1.0 / sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 
 	return ((t_v4d){
-		v.x / n,
-		v.y / n,
-		v.z / n,
+		v.x * n,
+		v.y * n,
+		v.z * n,
 		v.w
 	});
 }
