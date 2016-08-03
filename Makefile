@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/08/03 14:02:37 by alhote           ###   ########.fr        #
+#    Updated: 2016/08/03 17:28:29 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,7 @@ OBJ=draw_line.o \
 	draw_blitsurface.o \
 	draw_make_surface.o \
 	draw_perlin.o \
+	draw_suv.o \
 	geo/geo_mk_mat.o \
 	geo/geo_mk_projection.o \
 	geo/geo_mkv.o \
