@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/07/27 02:03:57 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/03 13:57:43 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ double			geo_distv4(const t_v4d a, const t_v4d b);
 double			geo_lenv4(t_v4d v);
 t_v4d			geo_dtov4d(double x);
 t_vector		geo_apply(t_vector point, const t_matrix *t);
+t_v4d			geo_crossv4(t_v4d a, t_v4d b);
 
 void			geo_putvector(t_vector v, unsigned int p);
 void			geo_putv4f(t_v4f v, unsigned int p);

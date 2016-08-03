@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/07/28 22:37:45 by snicolet         ###   ########.fr        #
+#    Updated: 2016/08/03 14:02:37 by alhote           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ OBJ=draw_line.o \
 	geo/geo_mkv.o \
 	geo/geo_mult_mat.o \
 	geo/geo_mult.o \
+	geo/geo_cross.o \
 	geo/geo_apply.o \
 	geo/geo_trans.o \
 	geo/geo_mk_rot.o \

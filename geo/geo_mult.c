@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/03 13:06:18 by alhote           ###   ########.fr       */
+/*   Updated: 2016/08/03 13:52:41 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_vector	geo_multv(t_vector a, t_vector b)
 t_v4d		geo_multv4(t_v4d a, t_v4d b)
 {
 	return ((t_v4d){
-		a.y * b.z - a.z * b.y,
-		a.z * b.x - a.x * b.z,
-		a.x * b.y - a.y * b.x,
+		a.x * b.x,
+		a.y * b.y,
+		a.z * b.z,
 		a.w * b.w
 	});
 }
