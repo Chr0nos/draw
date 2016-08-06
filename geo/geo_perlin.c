@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 00:44:15 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/28 22:30:40 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/06 17:29:24 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,6 @@ static float		r(t_v2f n)
     return (fract(cosf(geo_dotv2f(n, (t_v2f){36.26f, 73.12f})) * 354.63f));
 }
 
-static float		mix(float a, float b, float pc)
-{
-	return (a * (1.0f - pc) + (b * pc));
-}
-
-static float		geo_clamp(float x, float min, float max)
-{
-	if (x < min)
-		return (min);
-	return ((x > max) ? max : x);
-}
-
-static t_v2f		smoothstep(t_v2f a, t_v2f b, t_v2f x)
-{
-	const t_v2f t = {
-		geo_clamp((x.x - a.x) / (b.x - a.x), 0.0f, 1.0f),
-		geo_clamp((x.y - a.y) / (b.x - a.y), 0.0f, 1.0f),
-	};
-
-	return ((t_v2f){t.x * t.x * (3.0f - 2.0f * t.x),
-		t.y * t.y * (3.0f - 2.0f * t.y)});
-}
-
 static float		noise(t_v2f n)
 {
     t_v2f 		fn;
@@ -65,17 +42,17 @@ static float		noise(t_v2f n)
 	float		h2;
 
 	fn = (t_v2f){floorf(n.x), floorf(n.y)};
-	sn = smoothstep(
+	sn = geo_smoothstep(
 			(t_v2f){0.0f, 0.0f},
 			(t_v2f){1.0f, 1.0f},
 			fractv(n));
-    h1 = mix(r(fn), r(geo_addv2f(
+    h1 = geo_mix(r(fn), r(geo_addv2f(
 			(t_v2f){fn.x, fn.y},
 			(t_v2f){1.0f, 0.0f})
 		), sn.x);
-	h2 = mix(r((t_v2f){fn.x, fn.y + 1.0f}), r((t_v2f){fn.x + 1.0f, fn.y + 1.0f}),
+	h2 = geo_mix(r((t_v2f){fn.x, fn.y + 1.0f}), r((t_v2f){fn.x + 1.0f, fn.y + 1.0f}),
 		sn.x);
-    return (mix(h1, h2, sn.y));
+    return (geo_mix(h1, h2, sn.y));
 }
 
 float				geo_perlin(t_v2f px)

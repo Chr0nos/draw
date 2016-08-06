@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/08/03 17:28:29 by snicolet         ###   ########.fr        #
+#    Updated: 2016/08/06 17:30:18 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,10 @@ OBJ=draw_line.o \
 	geo/geo_len.o \
 	geo/geo_inv_mat.o \
 	geo/geo_perlin.o \
-	geo/geo_div.o
+	geo/geo_div.o \
+	geo/geo_mix.o \
+	geo/geo_clamp.o \
+	geo/geo_smoothstep.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
