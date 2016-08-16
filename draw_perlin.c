@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/28 22:37:39 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/30 03:18:59 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/16 21:48:36 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void					draw_perlin(SDL_Surface *surface)
 		px.y = surface->h;
 		while (px.y--)
 		{
-			pixels[px.y * surface->w + px.x] = colorf(geo_perlin((t_v2f){
+			pixels[px.y * surface->w + px.x] = colorf(
+				geo_clamp(geo_perlin((t_v2f){
 				(float)px.x,
-				(float)px.y}));
+				(float)px.y}), 0.0f, 1.0f));
 		}
 	}
 }
