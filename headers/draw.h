@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/18 19:46:23 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/19 02:00:09 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,8 @@ void			draw_blitsurface_opc(SDL_Surface *dest, SDL_Surface *src,
 SDL_Surface		*draw_make_surface(const t_v2i size);
 void			draw_blitsurface_dbg_alpha(SDL_Surface *dest, SDL_Surface *src,
 	t_v2i offset);
+void			draw_blitsurface_blend(SDL_Surface *dest, SDL_Surface *src,
+		t_v2i offset, unsigned int (*blend)(unsigned int, unsigned int));
 void			draw_perlin(SDL_Surface *surface);
 void			draw_perlin_aa(SDL_Surface *surface);
 void			draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom);
