@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   geo.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/08/06 17:29:53 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/20 12:52:25 by alhote           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ t_v2f			geo_v2f_div(t_v2f px, const float x);
 float			geo_dotv2f(t_v2f a, t_v2f b);
 t_v2f			geo_addv2f(t_v2f a, t_v2f b);
 float			geo_perlin(t_v2f px);
+t_v4d			geo_barycentric_coordinates(t_v4d a, t_v4d b, t_v4d c, t_v4d p);
 
 t_v2f			geo_smoothstep(t_v2f a, t_v2f b, t_v2f x);
 float			geo_clamp(float x, float min, float max);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
+#    By: alhote <alhote@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/08/06 17:30:18 by snicolet         ###   ########.fr        #
+#    Updated: 2016/08/20 12:38:56 by alhote           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ OBJ=draw_line.o \
 	geo/geo_div.o \
 	geo/geo_mix.o \
 	geo/geo_clamp.o \
-	geo/geo_smoothstep.o
+	geo/geo_smoothstep.o \
+	geo/geo_barycentric_coordinates.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
