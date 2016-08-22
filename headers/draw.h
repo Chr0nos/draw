@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/19 02:00:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/22 17:39:10 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 void			draw_quit(t_draw *d);
 
 unsigned int	draw_color_lerp(unsigned int a, unsigned int b, float pc);
+unsigned int	draw_color_lerp_alpha(unsigned int a, unsigned int b, float pc);
 unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b,
 		unsigned int max, float pc);
 
@@ -140,5 +141,6 @@ void			draw_perlin(SDL_Surface *surface);
 void			draw_perlin_aa(SDL_Surface *surface);
 void			draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom);
 unsigned int	draw_suv(SDL_Surface *surface, t_v2f pos);
+unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f pos);
 
 #endif
