@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/22 18:16:50 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/22 19:14:05 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 	color_a = ((unsigned int *)surface->pixels)[(int)px.y * surface->w + (int)px.x];
 	color_b = ((unsigned int *)surface->pixels)[geo_ceilf(px.y) * surface->w + geo_ceilf(px.x)];
 	lerp_pc = (pc.x > pc.y) ? pc.x : pc.y;
-	return (draw_color_lerp(color_a, color_b, lerp_pc * 1.5f) | (color_a & 0xff000000));
+	return (draw_color_lerp(color_a, color_b, lerp_pc) | (color_a & 0xff000000));
 }
