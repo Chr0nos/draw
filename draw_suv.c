@@ -6,12 +6,12 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 08:30:41 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 08:41:18 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
-#include <math.h>
+#include "geo.h"
 
 unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
 {

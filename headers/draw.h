@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 08:22:30 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 08:40:15 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void			*draw_pixelsconvert(unsigned int *dest, const void *src,
 void			draw_quit(t_draw *d);
 
 unsigned int	draw_color_lerp(unsigned int a, unsigned int b, float pc);
+unsigned int	draw_color_lerp_alpha(unsigned int a, unsigned int b, float pc);
 unsigned int	draw_color_lerp_max(unsigned int a, unsigned int b,
 		unsigned int max, float pc);
 
