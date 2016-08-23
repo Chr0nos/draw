@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 19:38:32 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 21:41:49 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,41 +37,32 @@ unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
 
 #include <stdio.h>
 
+static inline float	clamp(float x)
+{
+	return (geo_clamp(x, 0.0f, 1.0f));
+}
+
 unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 {
 	const t_v2f			step = (t_v2f){1.0f / surface->w, 1.0f / surface->h};
 	t_v2f				pxuv;
 	const unsigned int	color_a = draw_suv(surface, uv);
 	t_v3ui				color;
-	t_v2f				lerp_pc;
+	t_v3f				lerp_pc;
 
-	// frac = geo_fract_v2f((t_v2f){
-	// 	(unit.x / ((uv.x - (unit.x * 0.5f))) * (unit.x)) * surface->w,
-	// 	(unit.y / ((uv.y - (unit.x * 0.5f))) * (unit.y)) * surface->h
-	// });
 	pxuv = (t_v2f){
-		((uv.x * surface->w) - (uv.x * step.x)) * step.x,
-		((uv.y * surface->h) - (uv.y * step.y)) * step.y
+		geo_fract(uv.x * surface->w) - 0.5f,
+		geo_fract(uv.y * surface->h) - 0.5f
 	};
-	// pxuv = (t_v2f){
-	// 	(uv.x - (uv.x / step.x * (surface->w / step.x))) * surface->w,
-	// 	(uv.y - (uv.y / step.y * (surface->h / step.y))) * surface->h
-	// };
-	//pxuv = geo_fract_v2f(pxuv);
-	uv = (t_v2f)
-	{
-		geo_clamp(uv.x + ((pxuv.x < 0.0f) ? -step.x : step.x), 0.0f, 1.0f),
-		geo_clamp(uv.y + ((pxuv.y < 0.0f) ? -step.y : step.y), 0.0f, 1.0f)
-	};
-	//lerp_pc = frac.x + frac.y;
-	lerp_pc.x = (pxuv.x + pxuv.y) * 0.5f;
-	lerp_pc.y = (pxuv.x + pxuv.y) * 0.5f;
-	//lerp_pc = (uv.x > uv.y) ? uv.x : uv.y;
-	//color_b = draw_suv(surface, uv);
+	color.x = draw_suv(surface, (t_v2f){clamp(uv.x + ((pxuv.x > 0.0f) ? step.x : -step.x)), uv.y});
+	color.y = draw_suv(surface, (t_v2f){uv.x, clamp(uv.y + ((pxuv.x > 0.0f) ? step.y : -step.y))});
 	color.x = 0xff0000;
 	color.y = 0x0000ff;
-	printf("%f %f lerp: %f\n", (double)pxuv.x, (double)pxuv.y, (double)lerp_pc.x);
+//	printf("%f %f lerp: %f\n", (double)pxuv.x, (double)pxuv.y, (double)lerp_pc.x);
+	lerp_pc.x = ABS(pxuv.x);
+	lerp_pc.y = ABS(pxuv.y);
+	lerp_pc.z = (lerp_pc.x + lerp_pc.y) * 0.5f;
 	color.z = draw_color_lerp(draw_color_lerp(color_a, color.x, lerp_pc.x),
-		color.y, lerp_pc.y);
+		color.y, lerp_pc.z);
 	return (color.z | (color_a & 0xff000000));
 }
