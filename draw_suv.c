@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 14:05:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 14:25:00 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,20 @@ unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 	unsigned int		color_b;
 	float				lerp_pc;
 
-	frac = (t_v2f){
-		(1.0f / uv.x * unit.x),
-		(1.0f / uv.y * unit.y)
-	};
+	frac = geo_fract_v2f((t_v2f){
+		(1.0f / uv.x * (unit.x)),
+		(1.0f / uv.y * (unit.y))
+	});
 	uv = (t_v2f)
 	{
-		geo_clamp(uv.x + ((frac.x < unit.x * 0.5f) ? -unit.x : unit.x), 0.0f, 1.0f),
-		geo_clamp(uv.y + ((frac.y < unit.y * 0.5f) ? -unit.y : unit.y), 0.0f, 1.0f)
+		geo_clamp(uv.x + ((frac.x < 0.0f) ? -unit.x : unit.x), 0.0f, 1.0f),
+		geo_clamp(uv.y + ((frac.y < 0.0f) ? -unit.y : unit.y), 0.0f, 1.0f)
 	};
-	lerp_pc = (uv.x > uv.y) ? uv.x : uv.y;
-	color_b = draw_suv(surface, uv);
-	//color_b = 0xff0000;
+	lerp_pc = frac.x + frac.y;
+	//lerp_pc = (uv.x > uv.y) ? uv.x : uv.y;
+	//color_b = draw_suv(surface, uv);
+	color_b = 0xff0000;
 	//printf("%f %f lerp: %f\n", (double)frac.x, (double)frac.y, (double)lerp_pc);
-	return (draw_color_lerp(color_a, color_b, geo_clamp(lerp_pc, 0.0f, 0.5f)));
+	return (draw_color_lerp(color_a, color_b, geo_clamp(lerp_pc, 0.0f, 0.5f)) |
+		(color_a & 0xff000000));
 }
