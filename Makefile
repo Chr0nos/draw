@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/08/22 16:54:35 by snicolet         ###   ########.fr        #
+#    Updated: 2016/08/23 14:02:36 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,8 @@ OBJ=draw_line.o \
 	geo/geo_clamp.o \
 	geo/geo_smoothstep.o \
 	geo/geo_barycentric_coordinates.o \
-	geo/geo_floatcmp.o
+	geo/geo_floatcmp.o \
+	geo/geo_fract.o
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h

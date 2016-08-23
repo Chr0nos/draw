@@ -6,32 +6,20 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 00:44:15 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/16 21:51:58 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 14:04:01 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include <math.h>
 
-//fract: partie fractionaire
-//implementation: https://www.shadertoy.com/view/XtXXD8
-
-inline static float	fract(float x)
-{
-	return (x - floorf(x));
-}
-
-inline static t_v2f	fractv(t_v2f v)
-{
-	return (t_v2f){
-		fract(v.x),
-		fract(v.y)
-	};
-}
+/*
+** implementation: https://www.shadertoy.com/view/XtXXD8
+*/
 
 static float		r(t_v2f n)
 {
-    return (fract(cosf(geo_dotv2f(n, (t_v2f){36.26f, 73.12f})) * 354.63f));
+    return (geo_fract(cosf(geo_dotv2f(n, (t_v2f){36.26f, 73.12f})) * 354.63f));
 }
 
 static float		noise(t_v2f n)
@@ -45,7 +33,7 @@ static float		noise(t_v2f n)
 	sn = geo_smoothstep(
 			(t_v2f){0.0f, 0.0f},
 			(t_v2f){1.0f, 1.0f},
-			fractv(n));
+			geo_fract_v2f(n));
     h1 = geo_mix(r(fn), r(geo_addv2f(
 			(t_v2f){fn.x, fn.y},
 			(t_v2f){1.0f, 0.0f})
