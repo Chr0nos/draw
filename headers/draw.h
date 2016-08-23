@@ -6,12 +6,13 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 13:27:50 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/19 02:00:09 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/23 08:22:30 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DRAW_H
 # define DRAW_H
+# define ABS(x) ((x < 0) ? -x : x)
 # include <string.h>
 # include <SDL2/SDL.h>
 # include "geo.h"
@@ -139,6 +140,7 @@ void			draw_blitsurface_blend(SDL_Surface *dest, SDL_Surface *src,
 void			draw_perlin(SDL_Surface *surface);
 void			draw_perlin_aa(SDL_Surface *surface);
 void			draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom);
-unsigned int	draw_suv(SDL_Surface *surface, t_v2f pos);
+unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv);
+unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv);
 
 #endif

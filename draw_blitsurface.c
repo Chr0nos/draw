@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/21 19:32:33 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/19 02:08:46 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/21 11:38:27 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void		draw_blitsurface_opc(SDL_Surface *dest, SDL_Surface *src,
 		}
 	}
 }
+
+//todo: utiliser un SDL_Rect pour la position de destination et eviter de depasser
 
 void		draw_blitsurface_blend(SDL_Surface *dest, SDL_Surface *src,
 	t_v2i offset, unsigned int (*blend)(unsigned int, unsigned int))
