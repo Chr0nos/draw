@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 22:28:05 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/24 00:10:47 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
 ** lerp_pc = a number range(0.0 - 0.5) to know the value of the degrade to to
 **    lerp.z is for the global interpolation bewtween lerp.x and lerp.y
 **   with between color_a and color_b (0.0 = color_a)
-** frac = fractional part of the position:
+** pxuv = fractional part of the position:
 ** - the idea is to considerate the center of the current pixel as 0, 0 uv
 **   instead of 0.5, 0.5, then look wich value is under 0 to know wich pixel
 **   will be used for the color_lerp
@@ -66,11 +66,12 @@ unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 	color.x = 0xff0000;
 	color.y = 0x0000ff;
 //	printf("%f %f lerp: %f\n", (double)pxuv.x, (double)pxuv.y, (double)lerp_pc.x);
-	lerp_pc.x = ABS(pxuv.x);
-	lerp_pc.y = ABS(pxuv.y);
-	lerp_pc.z = (lerp_pc.x + lerp_pc.y) * 0.5f;
+	pxuv = (t_v2f){ABS(pxuv.x), ABS(pxuv.y)};
+	lerp_pc.x = 1.0f / pxuv.x;
+	lerp_pc.y = 1.0f / pxuv.y;
+	lerp_pc.z = (pxuv.x < pxuv.y) ? pxuv.y : pxuv.x;
 	color.x = draw_color_lerp(color_a, color.x, geo_clamp(lerp_pc.x, 0.0f, 0.5f));
 	color.y = draw_color_lerp(color_a, color.y, geo_clamp(lerp_pc.y, 0.0f, 0.5f));
-	color.z = draw_color_lerp(color.x, color.y, geo_clamp(lerp_pc.z, 0.0f, 0.5f));
+	color.z = draw_color_lerp(color.x, color.y, lerp_pc.z);
 	return (color.z | (color_a & 0xff000000));
 }
