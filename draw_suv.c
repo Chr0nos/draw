@@ -6,14 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/24 00:10:47 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/26 03:56:59 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include "geo.h"
 
-unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
+unsigned int		draw_suv(SDL_Surface *surface, t_v2f uv)
 {
 	return (((unsigned int*)surface->pixels)[(int)(surface->h * uv.y) *
 		surface->w + (int)(surface->w * uv.x)]);
@@ -38,16 +38,19 @@ unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
 **    if (r < 0.0f) then use the pixel left or down of the current
 **    else use the pixel right or up the current
 **    do a lerp bewtween the 2 selected pixels (color.x and color.y)
+** ----
+** for debug purpose:
+** color.x = 0xff0000;
+** color.y = 0x0000ff;
+**
 */
-
-#include <stdio.h>
 
 static inline float	clamp(float x)
 {
 	return (geo_clamp(x, 0.0f, 1.0f));
 }
 
-unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
+unsigned int		draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 {
 	const t_v2f			step = (t_v2f){1.0f / surface->w, 1.0f / surface->h};
 	t_v2f				pxuv;
@@ -63,15 +66,14 @@ unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 		(t_v2f){clamp(uv.x + ((pxuv.x > 0.0f) ? step.x : -step.x)), uv.y});
 	color.y = draw_suv(surface,
 		(t_v2f){uv.x, clamp(uv.y + ((pxuv.x > 0.0f) ? step.y : -step.y))});
-	color.x = 0xff0000;
-	color.y = 0x0000ff;
-//	printf("%f %f lerp: %f\n", (double)pxuv.x, (double)pxuv.y, (double)lerp_pc.x);
 	pxuv = (t_v2f){ABS(pxuv.x), ABS(pxuv.y)};
 	lerp_pc.x = 1.0f / pxuv.x;
 	lerp_pc.y = 1.0f / pxuv.y;
 	lerp_pc.z = (pxuv.x < pxuv.y) ? pxuv.y : pxuv.x;
-	color.x = draw_color_lerp(color_a, color.x, geo_clamp(lerp_pc.x, 0.0f, 0.5f));
-	color.y = draw_color_lerp(color_a, color.y, geo_clamp(lerp_pc.y, 0.0f, 0.5f));
+	color.x = draw_color_lerp(color_a, color.x,
+		geo_clamp(lerp_pc.x, 0.0f, 0.5f));
+	color.y = draw_color_lerp(color_a, color.y,
+		geo_clamp(lerp_pc.y, 0.0f, 0.5f));
 	color.z = draw_color_lerp(color.x, color.y, lerp_pc.z);
 	return (color.z | (color_a & 0xff000000));
 }
