@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/21 19:32:33 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/26 03:54:07 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/29 16:23:35 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void		draw_blitsurface_blend(SDL_Surface *dest, SDL_Surface *src,
 
 	px.x = src->w;
 	dest_pixels = dest->pixels;
- 	src_pixels = src->pixels;
+	src_pixels = src->pixels;
 	while (px.x--)
 	{
 		px.y = src->h;
