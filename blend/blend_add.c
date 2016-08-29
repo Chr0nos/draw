@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   geo_smoothstep.c                                   :+:      :+:    :+:   */
+/*   blend_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/29 16:19:02 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/29 16:19:10 by snicolet         ###   ########.fr       */
+/*   Created: 2016/08/25 08:46:16 by snicolet          #+#    #+#             */
+/*   Updated: 2016/08/25 08:46:29 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "geo.h"
+#include "blend.h"
 
-t_v2f		geo_smoothstep(t_v2f a, t_v2f b, t_v2f x)
+unsigned int		blend_add(unsigned int a, unsigned int b)
 {
-	t_v2f	t;
+	const unsigned int	red = R(a) + R(b);
+	const unsigned int	green = G(a) + G(b);
+	const unsigned int	blue = B(a) + B(b);
+	const unsigned int	alpha = A(a) + A(b);
 
-	t = (t_v2f){
-		geo_clamp((x.x - a.x) / (b.x - a.x), 0.0f, 1.0f),
-		geo_clamp((x.y - a.y) / (b.x - a.y), 0.0f, 1.0f),
-	};
-	return ((t_v2f){t.x * t.x * (3.0f - 2.0f * t.x),
-		t.y * t.y * (3.0f - 2.0f * t.y)});
+	return (to_rgb(alpha, red, green, blue));
 }

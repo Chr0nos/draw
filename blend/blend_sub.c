@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   geo_smoothstep.c                                   :+:      :+:    :+:   */
+/*   blend_sub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/29 16:19:02 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/29 16:19:10 by snicolet         ###   ########.fr       */
+/*   Created: 2016/08/25 08:46:38 by snicolet          #+#    #+#             */
+/*   Updated: 2016/08/25 08:46:51 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "geo.h"
+#include "blend.h"
 
-t_v2f		geo_smoothstep(t_v2f a, t_v2f b, t_v2f x)
+unsigned int		blend_sub(unsigned int a, unsigned int b)
 {
-	t_v2f	t;
+	unsigned int	red;
+	unsigned int	green;
+	unsigned int	blue;
+	unsigned int	alpha;
 
-	t = (t_v2f){
-		geo_clamp((x.x - a.x) / (b.x - a.x), 0.0f, 1.0f),
-		geo_clamp((x.y - a.y) / (b.x - a.y), 0.0f, 1.0f),
-	};
-	return ((t_v2f){t.x * t.x * (3.0f - 2.0f * t.x),
-		t.y * t.y * (3.0f - 2.0f * t.y)});
+	red = R(a) - R(b);
+	green = G(a) - G(b);
+	blue = B(a) - B(b);
+	alpha = A(a) - A(b);
+	return (to_rgb(alpha, red, green, blue));
 }

@@ -6,14 +6,14 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/29 16:15:00 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/29 16:19:34 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "draw.h"
 #include "geo.h"
 
-unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
+unsigned int		draw_suv(SDL_Surface *surface, t_v2f uv)
 {
 	return (((unsigned int*)surface->pixels)[(int)(surface->h * uv.y) *
 		surface->w + (int)(surface->w * uv.x)]);
@@ -38,6 +38,10 @@ unsigned int	draw_suv(SDL_Surface *surface, t_v2f uv)
 **    if (r < 0.0f) then use the pixel left or down of the current
 **    else use the pixel right or up the current
 **    do a lerp bewtween the 2 selected pixels (color.x and color.y)
+** ----
+** for debug purpose:
+** color.x = 0xff0000;
+** color.y = 0x0000ff;
 */
 
 static inline float	clamp(float x)
@@ -45,7 +49,7 @@ static inline float	clamp(float x)
 	return (geo_clamp(x, 0.0f, 1.0f));
 }
 
-unsigned int	draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
+unsigned int		draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 {
 	const t_v2f			step = (t_v2f){1.0f / surface->w, 1.0f / surface->h};
 	t_v2f				pxuv;

@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/28 22:37:39 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/18 19:46:10 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/26 03:54:33 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void					draw_perlin(SDL_Surface *surface)
 	}
 }
 
-void				draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom)
+void					draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom)
 {
 	t_v2i				px;
 	unsigned int		*pixels;
@@ -64,7 +64,7 @@ void				draw_perlin_alpha(SDL_Surface *surface, t_v2f zoom)
 	}
 }
 
-static float		draw_perlin_aa_px(t_v2f v)
+static float			draw_perlin_aa_px(t_v2f v)
 {
 	float			perlin;
 
@@ -80,7 +80,7 @@ static float		draw_perlin_aa_px(t_v2f v)
 	return (perlin / 9.0f);
 }
 
-void				draw_perlin_aa(SDL_Surface *surface)
+void					draw_perlin_aa(SDL_Surface *surface)
 {
 	t_v2i			px;
 	unsigned int	*pixels;

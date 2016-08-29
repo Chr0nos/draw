@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/27 00:44:15 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/29 16:16:46 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/08/29 16:20:46 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ float				geo_perlin(t_v2f px)
 	float	total;
 
 	total = noise(geo_v2f_mult(geo_v2f_div(px, 32.0f), 0.5875f)) +
-			noise(geo_v2f_div(px, 16.0f)) * 0.2f +
-			noise(geo_v2f_mult(px, 0.125f)) * 0.1f +
-			noise(geo_v2f_div(px, 4.0f)) * 0.05f +
-			noise(geo_v2f_div(px, 2.0f)) * 0.025f +
-			noise(px) * 0.0125f;
+		noise(geo_v2f_div(px, 16.0f)) * 0.2f +
+		noise(geo_v2f_mult(px, 0.125f)) * 0.1f +
+		noise(geo_v2f_div(px, 4.0f)) * 0.05f +
+		noise(geo_v2f_div(px, 2.0f)) * 0.025f +
+		noise(px) * 0.0125f;
 	return (total);
 }
