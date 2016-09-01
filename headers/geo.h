@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/08/23 14:02:19 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/09/02 00:49:12 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,8 @@ float			geo_mix(float a, float b, float pc);
 int				geo_floatcmp(float a, float b);
 float			geo_fract(float x);
 t_v2f			geo_fract_v2f(t_v2f v);
+
+double			geo_min(double x, double y);
+double			geo_max(double x, double y);
 
 #endif

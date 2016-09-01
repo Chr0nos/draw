@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/08/25 08:49:41 by snicolet         ###   ########.fr        #
+#    Updated: 2016/09/02 00:46:20 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,8 @@ OBJ=draw_line.o \
 	geo/geo_barycentric_coordinates.o \
 	geo/geo_floatcmp.o \
 	geo/geo_fract.o \
+	geo/geo_min.o \
+	geo/geo_max.o \
 	blend/to_rgb.o \
 	blend/blend_add.o \
 	blend/blend_sub.o \
