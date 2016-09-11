@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 02:46:45 by snicolet          #+#    #+#             */
-/*   Updated: 2016/07/27 01:17:51 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/09/11 21:07:14 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,17 @@ int			draw_init(t_draw *d, t_v2i geometry, const char *title)
 		ft_putendl("error: failed to init sdl");
 		return (-1);
 	}
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
-	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 	d->geometry = geometry;
 	d->win = SDL_CreateWindow(title,
 		SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 		geometry.x, geometry.y,
-		SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
+		SDL_WINDOW_RESIZABLE);
 	if (!d->win)
 	{
 		ft_putendl("error: failed to init sdl window");
 		return (-2);
 	}
-	d->render = SDL_CreateRenderer(d->win, -1,
-		SDL_RENDERER_SOFTWARE);
+	d->render = NULL;
 	d->screen = NULL;
 	d->screen_tex = NULL;
 	d->glcontext = NULL;
