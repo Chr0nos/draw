@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/09/02 00:49:12 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/09/12 20:18:15 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ t_v4d			geo_barycentric_coordinates(t_v4d a, t_v4d b, t_v4d c, t_v4d p);
 
 t_v2f			geo_smoothstep(t_v2f a, t_v2f b, t_v2f x);
 float			geo_clamp(float x, float min, float max);
+t_v2f			geo_clamp_v2f(t_v2f values, const float min, const float max);
 float			geo_mix(float a, float b, float pc);
 int				geo_floatcmp(float a, float b);
 float			geo_fract(float x);
