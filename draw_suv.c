@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_suv.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/03 17:20:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/09/14 17:51:25 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/09/15 17:08:37 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ unsigned int		draw_suv(SDL_Surface *surface, t_v2f uv)
 	const register int		posy = (int)(surface->h * uv.y);
 	const register int		posx = (int)(surface->w * uv.x);
 
-	if ((posy > surface->h) || (posy < 0))
-		uv.y = 0.0;
-	if ((posx > surface->w) || (posx < 0))
-		uv.x = 0.0;
+	if ((posy >= surface->h) || (posy < 0) ||
+		(posx >= surface->w) || (posx < 0))
+		return (*(unsigned int *)surface->pixels);
 	return (((unsigned int*)surface->pixels)[posy * surface->w + posx]);
 }
 
