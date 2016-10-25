@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/09/02 00:46:20 by snicolet         ###   ########.fr        #
+#*   Updated: 2016/10/22 00:20:23 by snicolet         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OPSYS=Darwin
 CC=clang
 FLAGS=-Wall -Wextra -Werror -Weverything -Ofast -Wno-padded -Wno-reserved-id-macro -Wno-documentation-unknown-command -Wno-documentation
 LIBFT=../libft/
-INC=-I $(LIBFT) -I../ -I./headers
+INC=-I $(LIBFT) -I../ -I./headers -I/usr/local/include
 NAME=libdraw.a
 OBJ=draw_line.o \
 	draw_rect.o draw_rect_fill.o draw_rect_mist.o \
