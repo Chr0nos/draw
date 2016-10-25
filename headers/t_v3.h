@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/17 16:31:24 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/23 18:43:19 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/25 14:23:23 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,12 @@ typedef struct		s_v3ui
 	unsigned int	y;
 	unsigned int	z;
 }					t_v3ui;
+
+typedef struct		s_v3i
+{
+	int				x;
+	int				y;
+	int				z;
+}					t_v3i;
 
 #endif
