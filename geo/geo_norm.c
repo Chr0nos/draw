@@ -12,12 +12,12 @@
 
 #include "geo.h"
 
-t_vector		geo_normv(t_vector v)
+t_v3f		geo_normv(t_v3f v)
 {
 	float	size;
 
 	size = sqrtf(powf(v.x, 2.0) + powf(v.y, 2.0) + powf(v.z, 2.0));
-	return ((t_vector){v.x / size, v.y / size, v.z / size});
+	return ((t_v3f){v.x / size, v.y / size, v.z / size});
 }
 
 t_v4f			geo_normv4f(t_v4f v)

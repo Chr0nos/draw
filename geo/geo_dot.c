@@ -12,7 +12,7 @@
 
 #include "geo.h"
 
-float	geo_dotv(t_vector a, t_vector b)
+float	geo_dotv(t_v3f a, t_v3f b)
 {
 	return (a.x * b.x + a.y * b.y + a.z * b.z);
 }

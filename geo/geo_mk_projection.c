@@ -12,7 +12,7 @@
 
 #include "geo.h"
 
-t_matrix	geo_mk_perspective(t_perspective s, t_vector c)
+t_matrix	geo_mk_perspective(t_perspective s, t_v3f c)
 {
 	t_matrix		m;
 	float			frustumdepth;
@@ -29,7 +29,7 @@ t_matrix	geo_mk_perspective(t_perspective s, t_vector c)
 	return (m);
 }
 
-t_matrix	geo_mk_ortho(t_vector s, t_vector c)
+t_matrix	geo_mk_ortho(t_v3f s, t_v3f c)
 {
 	t_matrix		m;
 

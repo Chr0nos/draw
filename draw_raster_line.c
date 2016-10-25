@@ -16,7 +16,7 @@
 ** this function convert 2 3d vectors into a 2d line using Z
 */
 
-t_line	draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform)
+t_line	draw_raster_line(t_v3f v1, t_v3f v2, t_matrix *transform)
 {
 	t_v2i		p1;
 	t_v2i		p2;

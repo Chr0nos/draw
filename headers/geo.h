@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/09/14 17:59:57 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/25 21:30:25 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,30 @@
 # define GEO_H
 
 # include <math.h>
+# include <string.h>
 # include "t_v2.h"
 # include "t_v3.h"
 # include "t_v4.h"
 # include "tperspective.h"
 
-typedef struct	s_draw_vector
-{
-	float		x;
-	float		y;
-	float		z;
-}				t_vector;
-
 typedef struct	s_matrix
 {
-	t_vector	x;
-	t_vector	y;
-	t_vector	z;
-	t_vector	offset;
+	t_v3f	x;
+	t_v3f	y;
+	t_v3f	z;
+	t_v3f	offset;
 }				t_matrix;
 
-t_matrix		geo_mk_rotx(t_vector pos, float rad, t_vector scale);
-t_matrix		geo_mk_roty(t_vector pos, float rad, t_vector scale);
-t_matrix		geo_mk_rotz(t_vector pos, float rad, t_vector scale);
-t_matrix		geo_mk_perspective(t_perspective s, t_vector c);
+t_matrix		geo_mk_rotx(t_v3f pos, float rad, t_v3f scale);
+t_matrix		geo_mk_roty(t_v3f pos, float rad, t_v3f scale);
+t_matrix		geo_mk_rotz(t_v3f pos, float rad, t_v3f scale);
+t_matrix		geo_mk_perspective(t_perspective s, t_v3f c);
 t_matrix		geo_mk_iso(int x, int y, int w, int h);
-t_matrix		geo_mk_ortho(t_vector s, t_vector c);
+t_matrix		geo_mk_ortho(t_v3f s, t_v3f c);
 t_matrix		geo_mult_m3(t_matrix m1, const t_matrix *m2);
 t_matrix		geo_mk_identity(void);
-t_matrix		geo_mk_rotxyz(t_vector axes, t_vector scale,
-	t_vector offset);
+t_matrix		geo_mk_rotxyz(t_v3f axes, t_v3f scale,
+	t_v3f offset);
 
 t_m4			geo_mk4_identity(void);
 t_m4			geo_mk4_iso(int x, int y, int w, int h);
@@ -68,14 +62,14 @@ t_matrix		geo_mk_rot_x(double rad);
 t_matrix		geo_mk_rot_y(double rad);
 t_matrix		geo_mk_rot_z(double rad);
 
-t_vector		geo_mkv(float x, float y, float z);
-t_vector		geo_trans(t_vector v, const t_matrix *m);
-t_vector		geo_addv(t_vector a, t_vector b);
-t_vector		geo_subv(t_vector a, t_vector b);
-t_vector		geo_invv(t_vector a);
-float			geo_dotv(t_vector a, t_vector b);
-t_vector		geo_multv(t_vector a, t_vector b);
-t_vector		geo_normv(t_vector v);
+t_v3f		geo_mkv(float x, float y, float z);
+t_v3f		geo_trans(t_v3f v, const t_matrix *m);
+t_v3f		geo_addv(t_v3f a, t_v3f b);
+t_v3f		geo_subv(t_v3f a, t_v3f b);
+t_v3f		geo_invv(t_v3f a);
+float			geo_dotv(t_v3f a, t_v3f b);
+t_v3f		geo_multv(t_v3f a, t_v3f b);
+t_v3f		geo_normv(t_v3f v);
 
 float			geo_dotv4f(t_v4f a, t_v4f b);
 double			geo_dotv4(t_v4d a, t_v4d b);
@@ -88,10 +82,10 @@ t_v4f			geo_subv4f(t_v4f a, t_v4f b);
 double			geo_distv4(const t_v4d a, const t_v4d b);
 double			geo_lenv4(t_v4d v);
 t_v4d			geo_dtov4d(double x);
-t_vector		geo_apply(t_vector point, const t_matrix *t);
+t_v3f		geo_apply(t_v3f point, const t_matrix *t);
 t_v4d			geo_crossv4(t_v4d a, t_v4d b);
 
-void			geo_putvector(t_vector v, unsigned int p);
+void			geo_putvector(t_v3f v, unsigned int p);
 void			geo_putv4f(t_v4f v, unsigned int p);
 void			geo_putv4d(t_v4d v, unsigned int p);
 void			geo_putm4(t_m4 m, unsigned int p);
@@ -112,5 +106,7 @@ t_v2f			geo_fract_v2f(t_v2f v);
 
 double			geo_min(double x, double y);
 double			geo_max(double x, double y);
+
+t_v3f			geo_center_v3(t_v3f *vertex, size_t n);
 
 #endif

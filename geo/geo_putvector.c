@@ -13,7 +13,7 @@
 #include "geo.h"
 #include "libft.h"
 
-void	geo_putvector(t_vector v, unsigned int p)
+void	geo_putvector(t_v3f v, unsigned int p)
 {
 	char	*s[3];
 

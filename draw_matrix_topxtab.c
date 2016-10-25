@@ -17,7 +17,7 @@
 t_v2i		*draw_matrix_topxtab(t_v2i *tab, size_t size, t_matrix *t)
 {
 	size_t		p;
-	t_vector	v;
+	t_v3f	v;
 
 	p = 0;
 	while (p < size)

@@ -12,9 +12,9 @@
 
 #include "geo.h"
 
-t_vector	geo_mkv(float x, float y, float z)
+t_v3f	geo_mkv(float x, float y, float z)
 {
-	t_vector	v;
+	t_v3f	v;
 
 	v.x = x;
 	v.y = y;

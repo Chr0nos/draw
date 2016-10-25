@@ -6,15 +6,15 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 18:35:41 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/26 16:26:49 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/25 21:28:28 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_vector	geo_subv(t_vector a, t_vector b)
+t_v3f	geo_subv(t_v3f a, t_v3f b)
 {
-	return ((t_vector){a.x - b.x, a.y - b.y, a.z - b.z});
+	return ((t_v3f){a.x - b.x, a.y - b.y, a.z - b.z});
 }
 
 t_v4d		geo_subv4(t_v4d a, t_v4d b)

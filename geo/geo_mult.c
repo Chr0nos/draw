@@ -12,9 +12,9 @@
 
 #include "geo.h"
 
-t_vector	geo_multv(t_vector a, t_vector b)
+t_v3f	geo_multv(t_v3f a, t_v3f b)
 {
-	return ((t_vector){a.x * b.x, a.y * b.y, a.z * b.z});
+	return ((t_v3f){a.x * b.x, a.y * b.y, a.z * b.z});
 }
 
 t_v4d		geo_multv4(t_v4d a, t_v4d b)

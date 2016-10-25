@@ -12,7 +12,7 @@
 
 #include "geo.h"
 
-t_vector	geo_trans(t_vector v, const t_matrix *m)
+t_v3f	geo_trans(t_v3f v, const t_matrix *m)
 {
 	v = geo_apply(v, m);
 	v.x += m->offset.x;

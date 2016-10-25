@@ -12,9 +12,9 @@
 
 #include "geo.h"
 
-t_vector	geo_invv(t_vector a)
+t_v3f	geo_invv(t_v3f a)
 {
-	return ((t_vector){-a.x, -a.y, -a.z});
+	return ((t_v3f){-a.x, -a.y, -a.z});
 }
 
 t_v4d		geo_invv4(t_v4d v)

@@ -13,7 +13,7 @@
 #include "geo.h"
 #include <math.h>
 
-t_matrix	geo_mk_rotx(t_vector pos, float rad, t_vector scale)
+t_matrix	geo_mk_rotx(t_v3f pos, float rad, t_v3f scale)
 {
 	t_matrix		m;
 	const float		s = sinf(rad);
@@ -26,7 +26,7 @@ t_matrix	geo_mk_rotx(t_vector pos, float rad, t_vector scale)
 	return (m);
 }
 
-t_matrix	geo_mk_roty(t_vector pos, float rad, t_vector scale)
+t_matrix	geo_mk_roty(t_v3f pos, float rad, t_v3f scale)
 {
 	t_matrix		m;
 	const float		s = sinf(rad);
@@ -39,7 +39,7 @@ t_matrix	geo_mk_roty(t_vector pos, float rad, t_vector scale)
 	return (m);
 }
 
-t_matrix	geo_mk_rotz(t_vector pos, float rad, t_vector scale)
+t_matrix	geo_mk_rotz(t_v3f pos, float rad, t_v3f scale)
 {
 	t_matrix		m;
 	const float		s = sinf(rad);

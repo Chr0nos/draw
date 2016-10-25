@@ -12,7 +12,7 @@
 
 #include "geo.h"
 
-t_vector	geo_apply(t_vector point, const t_matrix *t)
+t_v3f	geo_apply(t_v3f point, const t_matrix *t)
 {
 	return (geo_mkv(
 			(t->x.x * point.x) + (t->x.y * point.y) + (t->x.z * point.z),

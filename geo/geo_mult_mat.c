@@ -24,11 +24,11 @@ t_matrix	geo_mult_m3(t_matrix m1, const t_matrix *m2)
 	return (m1);
 }
 
-t_matrix	geo_mk_rotxyz(t_vector axes, t_vector scale,
-	t_vector offset)
+t_matrix	geo_mk_rotxyz(t_v3f axes, t_v3f scale,
+	t_v3f offset)
 {
 	t_matrix		final;
-	const t_vector	o = (t_vector){0.0, 0.0, 0.0};
+	const t_v3f	o = (t_v3f){0.0, 0.0, 0.0};
 	const t_matrix	mx = geo_mk_rotx(o, axes.x, scale);
 	const t_matrix	my = geo_mk_roty(o, axes.y, scale);
 	const t_matrix	mz = geo_mk_rotz(o, axes.z, scale);

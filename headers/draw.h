@@ -98,8 +98,8 @@ void			draw_pxtab(t_draw *d, t_v2i *tab, size_t size,
 		unsigned int color);
 t_v2i			*draw_move_pxlist(t_v2i *tab, size_t size, int x, int y);
 t_v2i			*draw_matrix_topxtab(t_v2i *tab, size_t size, t_matrix *t);
-t_v2i			draw_raster_px(t_vector v, t_matrix *transform);
-t_line			draw_raster_line(t_vector v1, t_vector v2, t_matrix *transform);
+t_v2i			draw_raster_px(t_v3f v, t_matrix *transform);
+t_line			draw_raster_line(t_v3f v1, t_v3f v2, t_matrix *transform);
 unsigned int	draw_color_hsv(int t, float s, float v);
 int				draw_color_rgb2int(t_rgb *rgb);
 void			draw_setcolor(t_draw *d, unsigned int color);
