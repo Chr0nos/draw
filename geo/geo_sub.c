@@ -6,13 +6,13 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 18:35:41 by snicolet          #+#    #+#             */
-/*   Updated: 2016/10/25 21:28:28 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/25 21:32:24 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_subv(t_v3f a, t_v3f b)
+t_v3f		geo_subv3(t_v3f a, t_v3f b)
 {
 	return ((t_v3f){a.x - b.x, a.y - b.y, a.z - b.z});
 }
