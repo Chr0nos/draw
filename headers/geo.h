@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/10/25 21:32:51 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/28 22:15:04 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@
 # include "t_v3.h"
 # include "t_v4.h"
 # include "tperspective.h"
+# include "t_proj.h"
 
 typedef struct	s_matrix
 {
-	t_v3f	x;
-	t_v3f	y;
-	t_v3f	z;
-	t_v3f	offset;
+	t_v3f		x;
+	t_v3f		y;
+	t_v3f		z;
+	t_v3f		offset;
 }				t_matrix;
 
 t_matrix		geo_mk_rotx(t_v3f pos, float rad, t_v3f scale);
@@ -62,14 +63,14 @@ t_matrix		geo_mk_rot_x(double rad);
 t_matrix		geo_mk_rot_y(double rad);
 t_matrix		geo_mk_rot_z(double rad);
 
-t_v3f		geo_mkv(float x, float y, float z);
-t_v3f		geo_trans(t_v3f v, const t_matrix *m);
-t_v3f		geo_addv(t_v3f a, t_v3f b);
-t_v3f		geo_subv3(t_v3f a, t_v3f b);
-t_v3f		geo_invv(t_v3f a);
+t_v3f			geo_mkv(float x, float y, float z);
+t_v3f			geo_trans(t_v3f v, const t_matrix *m);
+t_v3f			geo_addv(t_v3f a, t_v3f b);
+t_v3f			geo_subv3(t_v3f a, t_v3f b);
+t_v3f			geo_invv(t_v3f a);
 float			geo_dotv(t_v3f a, t_v3f b);
-t_v3f		geo_multv(t_v3f a, t_v3f b);
-t_v3f		geo_normv(t_v3f v);
+t_v3f			geo_multv(t_v3f a, t_v3f b);
+t_v3f			geo_normv(t_v3f v);
 
 float			geo_dotv4f(t_v4f a, t_v4f b);
 double			geo_dotv4(t_v4d a, t_v4d b);
@@ -108,5 +109,6 @@ double			geo_min(double x, double y);
 double			geo_max(double x, double y);
 
 t_v3f			geo_center_v3(t_v3f *vertex, size_t n);
+t_m4			geo_mk4_projection(const t_proj p);
 
 #endif

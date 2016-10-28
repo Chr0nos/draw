@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/10/25 21:24:41 by snicolet         ###   ########.fr        #
+#    Updated: 2016/10/28 22:13:35 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ OBJ=draw_line.o \
 	geo/geo_min.o \
 	geo/geo_max.o \
 	geo/geo_center.o \
+	geo/geo_mk4_projection.o \
 	blend/to_rgb.o \
 	blend/blend_add.o \
 	blend/blend_sub.o \
