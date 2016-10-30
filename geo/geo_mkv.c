@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_make_vector.c                                 :+:      :+:    :+:   */
+/*   geo_mkv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 14:09:34 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 20:20:55 by qloubier         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:21:07 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_mkv(float x, float y, float z)
+t_v3f		geo_mkv(float x, float y, float z)
 {
 	t_v3f	v;
 

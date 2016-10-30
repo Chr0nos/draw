@@ -6,13 +6,13 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/01 14:51:26 by snicolet          #+#    #+#             */
-/*   Updated: 2016/08/03 13:52:41 by alhote           ###   ########.fr       */
+/*   Updated: 2016/10/30 14:21:29 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_multv(t_v3f a, t_v3f b)
+t_v3f		geo_multv(t_v3f a, t_v3f b)
 {
 	return ((t_v3f){a.x * b.x, a.y * b.y, a.z * b.z});
 }

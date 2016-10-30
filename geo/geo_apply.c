@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   geo_apply.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/13 14:21:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 22:28:19 by qloubier         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:20:40 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_apply(t_v3f point, const t_matrix *t)
+t_v3f		geo_apply(t_v3f point, const t_matrix *t)
 {
 	return (geo_mkv(
 			(t->x.x * point.x) + (t->x.y * point.y) + (t->x.z * point.z),

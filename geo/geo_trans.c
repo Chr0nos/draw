@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_vector_transform.c                            :+:      :+:    :+:   */
+/*   geo_trans.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 18:08:44 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/23 22:10:30 by qloubier         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:22:16 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_trans(t_v3f v, const t_matrix *m)
+t_v3f		geo_trans(t_v3f v, const t_matrix *m)
 {
 	v = geo_apply(v, m);
 	v.x += m->offset.x;

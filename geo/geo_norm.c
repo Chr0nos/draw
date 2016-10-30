@@ -6,13 +6,13 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 18:32:19 by alhote            #+#    #+#             */
-/*   Updated: 2016/09/13 15:24:20 by alhote           ###   ########.fr       */
+/*   Updated: 2016/10/30 14:21:39 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f		geo_normv(t_v3f v)
+t_v3f			geo_normv(t_v3f v)
 {
 	float	size;
 

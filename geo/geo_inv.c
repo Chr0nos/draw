@@ -6,13 +6,13 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 19:09:03 by alhote            #+#    #+#             */
-/*   Updated: 2016/06/26 16:26:31 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:20:48 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f	geo_invv(t_v3f a)
+t_v3f		geo_invv(t_v3f a)
 {
 	return ((t_v3f){-a.x, -a.y, -a.z});
 }

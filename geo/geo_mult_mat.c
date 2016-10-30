@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/08 16:33:40 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/28 01:04:21 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:22:04 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_matrix	geo_mk_rotxyz(t_v3f axes, t_v3f scale,
 	t_v3f offset)
 {
 	t_matrix		final;
-	const t_v3f	o = (t_v3f){0.0, 0.0, 0.0};
+	const t_v3f		o = (t_v3f){0.0, 0.0, 0.0};
 	const t_matrix	mx = geo_mk_rotx(o, axes.x, scale);
 	const t_matrix	my = geo_mk_roty(o, axes.y, scale);
 	const t_matrix	mz = geo_mk_rotz(o, axes.z, scale);
