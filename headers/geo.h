@@ -6,12 +6,13 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/10/28 22:15:04 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/30 15:05:32 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GEO_H
 # define GEO_H
+# define PI180 0.017453292519943295769236907684886
 
 # include <math.h>
 # include <string.h>

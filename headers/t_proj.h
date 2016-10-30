@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   t_proj.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/28 22:06:53 by snicolet          #+#    #+#             */
-/*   Updated: 2016/10/28 22:08:12 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/10/30 14:36:31 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ typedef struct	s_proj
 {
 	double		left;
 	double		right;
-	double		top;
 	double		bottom;
-	double		far;
+	double		top;
 	double		near;
+	double		far;
 }				t_proj;
 
 #endif
