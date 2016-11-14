@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/10/28 22:13:35 by snicolet         ###   ########.fr        #
+#    Updated: 2016/11/14 19:51:54 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,11 @@ OBJ=draw_line.o \
 	geo/geo_max.o \
 	geo/geo_center.o \
 	geo/geo_mk4_projection.o \
+	geo/geo_quat_rot.o \
+	geo/geo_quat_mult.o \
+	geo/geo_quat_inv.o \
+	geo/geo_quat_tomatrix.o \
+	geo/geo_quat_identity.o \
 	blend/to_rgb.o \
 	blend/blend_add.o \
 	blend/blend_sub.o \
