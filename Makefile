@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#    Updated: 2016/11/14 22:34:05 by snicolet         ###   ########.fr        #
+#    Updated: 2016/11/14 22:38:44 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,9 @@ ALLOBJS=$(DRAW:%.c=$(BUILD_DIR)/$(DRAW_DIR)/%.o) \
 		$(BLEND:%.c=$(BUILD_DIR)/$(BLEND_DIR)/%.o) \
 		$(GEO:%.c=$(BUILD_DIR)/$(GEO_DIR)/%.o)
 
-ALLSRCS=$(DRAW) $(BLEND) $(GEO)
+ALLSRCS=$(DRAW:%.c=$(DRAW_DIR)/%.c) \
+	$(BLEND:%.c=$(BLEND_DIR)/%.c) \
+	$(GEO:%.c=$(GEO_DIR)/%.c)
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h

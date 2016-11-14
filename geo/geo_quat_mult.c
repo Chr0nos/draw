@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 19:17:40 by snicolet          #+#    #+#             */
-/*   Updated: 2016/11/14 19:31:03 by snicolet         ###   ########.fr       */
+/*   Updated: 2016/11/14 22:39:03 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ t_quaternion	geo_quat_mult(const t_quaternion a, const t_quaternion b)
 		.j = a.r * b.j + b.r * a.j - a.i * b.k + b.i * a.k,
 		.k = a.r * b.k + b.r * a.k + a.i * b.j - b.i * a.j});
 }
-
