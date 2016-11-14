@@ -6,7 +6,7 @@
 #    By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 12:33:23 by snicolet          #+#    #+#              #
-#*   Updated: 2016/10/27 04:06:48 by snicolet         ###   ########.fr       *#
+#    Updated: 2016/11/14 22:34:05 by snicolet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,76 +17,100 @@ FLAGS=-Wall -Wextra -Werror -Weverything -Ofast -Wno-padded -Wno-reserved-id-mac
 LIBFT=../libft/
 INC=-I $(LIBFT) -I../ -I./headers -I/usr/local/include
 NAME=libdraw.a
-OBJ=draw_line.o \
-	draw_rect.o draw_rect_fill.o draw_rect_mist.o \
-	draw_circle.o \
-	draw_px.o \
-	draw_make_line.o \
-	draw_make_rect.o \
-	draw_make_circle.o \
-	draw_make_px.o \
-	draw_putpoint.o \
-	draw_perimeter.o \
-	draw_move_pxlist.o \
-	draw_matrix_topxtab.o \
-	draw_pxtab.o \
-	draw_raster_px.o draw_raster_line.o \
-	draw_colors.o \
-	draw_init.o \
-	draw_getgeometry.o \
-	draw_reset_surface.o \
-	draw_pixelconvert.o \
-	draw_px_surface.o \
-	draw_convert_v4.o \
-	draw_swap.o \
-	draw_quit.o \
-	draw_color_lerp.o \
-	draw_blitsurface.o \
-	draw_make_surface.o \
-	draw_perlin.o \
-	draw_suv.o \
-	geo/geo_mk_mat.o \
-	geo/geo_mk_projection.o \
-	geo/geo_mkv.o \
-	geo/geo_mult_mat.o \
-	geo/geo_mult.o \
-	geo/geo_cross.o \
-	geo/geo_apply.o \
-	geo/geo_trans.o \
-	geo/geo_mk_rot.o \
-	geo/geo_add.o geo/geo_sub.o geo/geo_mult.o geo/geo_dot.o \
-	geo/geo_inv.o geo/geo_norm.o \
-	geo/geo_mk4_mat.o \
-	geo/geo_mk4_rot.o \
-	geo/geo_dist.o \
-	geo/geo_putvector.o \
-	geo/geo_len.o \
-	geo/geo_inv_mat.o \
-	geo/geo_perlin.o \
-	geo/geo_div.o \
-	geo/geo_mix.o \
-	geo/geo_clamp.o \
-	geo/geo_smoothstep.o \
-	geo/geo_barycentric_coordinates.o \
-	geo/geo_floatcmp.o \
-	geo/geo_fract.o \
-	geo/geo_min.o \
-	geo/geo_max.o \
-	geo/geo_center.o \
-	geo/geo_mk4_projection.o \
-	geo/geo_quat_rot.o \
-	geo/geo_quat_mult.o \
-	geo/geo_quat_inv.o \
-	geo/geo_quat_tomatrix.o \
-	geo/geo_quat_identity.o \
-	blend/to_rgb.o \
-	blend/blend_add.o \
-	blend/blend_sub.o \
-	blend/blend_normal.o \
-	blend/blend_overlay.o \
-	blend/blend_darken.o \
-	blend/blend_lighten.o \
-	blend/blend_multiply.o
+
+BUILD_DIR=build
+
+DRAW_DIR=draw
+DRAW=draw_line.c \
+	draw_rect.c \
+	draw_rect_fill.c \
+	draw_rect_mist.c \
+	draw_circle.c \
+	draw_px.c \
+	draw_make_line.c \
+	draw_make_rect.c \
+	draw_make_circle.c \
+	draw_make_px.c \
+	draw_putpoint.c \
+	draw_perimeter.c \
+	draw_move_pxlist.c \
+	draw_matrix_topxtab.c \
+	draw_pxtab.c \
+	draw_raster_px.c draw_raster_line.c \
+	draw_colors.c \
+	draw_init.c \
+	draw_getgeometry.c \
+	draw_reset_surface.c \
+	draw_pixelconvert.c \
+	draw_px_surface.c \
+	draw_convert_v4.c \
+	draw_swap.c \
+	draw_quit.c \
+	draw_color_lerp.c \
+	draw_blitsurface.c \
+	draw_make_surface.c \
+	draw_perlin.c \
+	draw_suv.c
+
+GEO_DIR=geo
+GEO=geo_mk_mat.c \
+	geo_mk_projection.c \
+	geo_mkv.c \
+	geo_mult_mat.c \
+	geo_mult.c \
+	geo_cross.c \
+	geo_apply.c \
+	geo_trans.c \
+	geo_mk_rot.c \
+	geo_add.c \
+	geo_sub.c \
+	geo_mult.c \
+	geo_dot.c \
+	geo_inv.c geo_norm.c \
+	geo_mk4_mat.c \
+	geo_mk4_rot.c \
+	geo_dist.c \
+	geo_putvector.c \
+	geo_len.c \
+	geo_inv_mat.c \
+	geo_perlin.c \
+	geo_div.c \
+	geo_mix.c \
+	geo_clamp.c \
+	geo_smoothstep.c \
+	geo_barycentric_coordinates.c \
+	geo_floatcmp.c \
+	geo_fract.c \
+	geo_min.c \
+	geo_max.c \
+	geo_center.c \
+	geo_mk4_projection.c \
+	geo_quat_rot.c \
+	geo_quat_mult.c \
+	geo_quat_inv.c \
+	geo_quat_tomatrix.c \
+	geo_quat_identity.c
+
+BLEND_DIR=blend
+BLEND=to_rgb.c \
+	blend_add.c \
+	blend_sub.c \
+	blend_normal.c \
+	blend_overlay.c \
+	blend_darken.c \
+	blend_lighten.c \
+	blend_multiply.c
+
+ALLDIR=$(BUILD_DIR)/$(BUILD_DIR) \
+	$(BUILD_DIR)/$(DRAW_DIR) \
+	$(BUILD_DIR)/$(BLEND_DIR) \
+	$(BUILD_DIR)/$(GEO_DIR)
+
+ALLOBJS=$(DRAW:%.c=$(BUILD_DIR)/$(DRAW_DIR)/%.o) \
+		$(BLEND:%.c=$(BUILD_DIR)/$(BLEND_DIR)/%.o) \
+		$(GEO:%.c=$(BUILD_DIR)/$(GEO_DIR)/%.o)
+
+ALLSRCS=$(DRAW) $(BLEND) $(GEO)
 
 ifeq ($(OPSYS), Darwin)
 	SDLLIB=/Library/Frameworks/SDL2.framework/Versions/A/Headers/SDL.h
@@ -98,19 +122,28 @@ endif
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) rc $(NAME) $(OBJ)
+$(NAME): $(ALLDIR) $(ALLOBJS)
+	$(AR) rc $(NAME) $(ALLOBJS)
 	ranlib $(NAME)
 
+$(ALLDIR):
+	mkdir -p $@
+
 clean:
-	rm -f $(OBJ)
+	rm -rf $(BUILD_DIR)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-%.o: %.c
+$(BUILD_DIR)/%.o: %.c
 	$(CC) -c $< -o $@ $(FLAGS) $(INC)
+
+norminette:
+	norminette $(ALLSRCS)
+
+dirs: $(ALLDIR)
+	@echo Done.
 
 .PHONY: re fclean clean
