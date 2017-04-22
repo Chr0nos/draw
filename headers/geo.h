@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2016/10/30 15:05:32 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/04/22 17:39:26 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_m4			geo_mk4_rot(t_v4d axis, double rad, t_v4d pos,
 t_m4			geo_mk4_euler(t_v4d euler, t_v4d pos, t_v4d scale);
 t_m4			geo_mk4_rotxyz(t_v4d axes, t_v4d scale,
 	t_v4d offset);
+t_m4f			geo_mk4_tof(const t_m4 m);
 t_v4f			geo_addv4f(t_v4f a, t_v4f b);
 t_v4d			geo_addv4(t_v4d a, t_v4d b);
 t_v4f			geo_normv4f(t_v4f v);
