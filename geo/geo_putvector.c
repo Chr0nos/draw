@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/31 18:19:00 by snicolet          #+#    #+#             */
-/*   Updated: 2016/06/26 16:26:47 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/05/04 10:37:53 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,25 @@
 
 void	geo_putvector(t_v3f v, unsigned int p)
 {
-	char	*s[3];
-
-	s[0] = ft_dtoa((double)v.x, p);
-	s[1] = ft_dtoa((double)v.y, p);
-	s[2] = ft_dtoa((double)v.z, p);
-	ft_printf("(t_v3f){%s, %s, %s}", s[0], s[1], s[2]);
-	ft_free_tab(s, 3);
+	ft_printf("(t_v3f){%.*f, %.*f, %.*f}",
+		p, (double)v.x,
+		p, (double)v.y,
+		p, (double)v.z);
 }
 
 void	geo_putv4f(t_v4f v, unsigned int p)
 {
-	char	*s[4];
-
-	s[0] = ft_dtoa((double)v.x, p);
-	s[1] = ft_dtoa((double)v.y, p);
-	s[2] = ft_dtoa((double)v.z, p);
-	s[3] = ft_dtoa((double)v.w, p);
-	ft_printf("(t_v4f){%s, %s, %s, %s}", s[0], s[1], s[2], s[3]);
-	ft_free_tab(s, 4);
+	ft_printf("(t_v4f){%.*f, %.*f, %.*f, %.*f}",
+		p, (double)v.x,
+		p, (double)v.y,
+		p, (double)v.z,
+		p, (double)v.w);
 }
 
 void	geo_putv4d(t_v4d v, unsigned int p)
 {
-	char	*s[4];
-
-	s[0] = ft_dtoa(v.x, p);
-	s[1] = ft_dtoa(v.y, p);
-	s[2] = ft_dtoa(v.z, p);
-	s[3] = ft_dtoa(v.w, p);
-	ft_printf("(t_v4d){%s, %s, %s, %s}", s[0], s[1], s[2], s[3]);
-	ft_free_tab(s, 4);
+	ft_printf("(t_v4d){%.*f, %.*f, %.*f, %.*f}", p, v.x, p, v.y, p, v.z, p,
+		v.w);
 }
 
 void	geo_putm4(t_m4 m, unsigned int p)
