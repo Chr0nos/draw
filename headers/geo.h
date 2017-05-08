@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2017/04/22 17:39:26 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/05/08 15:02:51 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ t_v3f			geo_mkv(float x, float y, float z);
 t_v3f			geo_trans(t_v3f v, const t_matrix *m);
 t_v3f			geo_addv(t_v3f a, t_v3f b);
 t_v3f			geo_subv3(t_v3f a, t_v3f b);
+t_v3i			geo_subv3i(const t_v3i a, const t_v3i b);
+t_v2f			geo_subv2f(const t_v2f a, const t_v2f b);
 t_v3f			geo_invv(t_v3f a);
 float			geo_dotv(t_v3f a, t_v3f b);
 t_v3f			geo_multv(t_v3f a, t_v3f b);
