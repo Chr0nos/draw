@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 19:36:36 by snicolet          #+#    #+#             */
-/*   Updated: 2016/11/14 20:05:03 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/05/31 23:02:35 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,17 @@ t_m4		geo_quat_tomatrix(const t_quaternion q)
 			1.0 - 2.0 * (q.i * q.i + q.j * q.j),
 			0.0},
 		(t_v4d){0.0, 0.0, 0.0, 1.0}
+	});
+}
+
+t_m4		geo_quat_tomatrix_offset(const t_quaternion q, const t_v4d offset)
+{
+	const t_m4		m = geo_quat_tomatrix(q);
+
+	return ((t_m4){
+		.x = m.x,
+		.y = m.y,
+		.z = m.z,
+		.w = offset
 	});
 }

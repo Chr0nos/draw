@@ -6,7 +6,7 @@
 /*   By: snicolet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/14 16:23:04 by snicolet          #+#    #+#             */
-/*   Updated: 2016/11/14 19:52:25 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/05/31 22:40:45 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ t_quaternion		geo_quat_rot(t_v3d axis, double rot);
 t_quaternion		geo_quat_mult(const t_quaternion a, const t_quaternion b);
 t_quaternion		geo_quat_inv(const t_quaternion q);
 t_m4				geo_quat_tomatrix(const t_quaternion q);
-
+t_m4				geo_quat_tomatrix_offset(const t_quaternion q,
+		const t_v4d offset);
 #endif
