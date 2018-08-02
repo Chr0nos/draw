@@ -15,7 +15,7 @@ OPSYS=Darwin
 CC=clang
 FLAGS=-Wall -Wextra -Werror -Weverything -Ofast -Wno-padded -Wno-reserved-id-macro -Wno-documentation-unknown-command -Wno-documentation
 LIBFT=../libft/
-INC=-I $(LIBFT) -I../ -I./headers -I/usr/local/include
+INC=-I $(LIBFT)/include -I../ -I./headers -I/usr/local/include
 NAME=libdraw.a
 
 BUILD_DIR=build
