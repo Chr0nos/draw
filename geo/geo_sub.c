@@ -6,7 +6,7 @@
 /*   By: snicolet <snicolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/30 18:35:41 by snicolet          #+#    #+#             */
-/*   Updated: 2017/05/08 15:02:26 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/06/05 15:28:25 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_v2f		geo_subv2f(const t_v2f a, const t_v2f b)
 {
 	return ((t_v2f){
 		.x = a.x - b.x,
-		.y = a.y - b.y		
+		.y = a.y - b.y
 	});
 }
 

@@ -6,7 +6,7 @@
 /*   By: qloubier <qloubier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/23 19:19:23 by qloubier          #+#    #+#             */
-/*   Updated: 2017/05/08 15:02:51 by snicolet         ###   ########.fr       */
+/*   Updated: 2018/09/30 18:01:14 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ t_v2f			geo_subv2f(const t_v2f a, const t_v2f b);
 t_v3f			geo_invv(t_v3f a);
 float			geo_dotv(t_v3f a, t_v3f b);
 t_v3f			geo_multv(t_v3f a, t_v3f b);
-t_v3f			geo_normv(t_v3f v);
+t_v3f			geo_normv(const t_v3f v);
+t_v3f			geo_cross(t_v3f a, t_v3f b);
 
 float			geo_dotv4f(t_v4f a, t_v4f b);
 double			geo_dotv4(t_v4d a, t_v4d b);
@@ -87,7 +88,7 @@ t_v4f			geo_subv4f(t_v4f a, t_v4f b);
 double			geo_distv4(const t_v4d a, const t_v4d b);
 double			geo_lenv4(t_v4d v);
 t_v4d			geo_dtov4d(double x);
-t_v3f		geo_apply(t_v3f point, const t_matrix *t);
+t_v3f			geo_apply(t_v3f point, const t_matrix *t);
 t_v4d			geo_crossv4(t_v4d a, t_v4d b);
 
 void			geo_putvector(t_v3f v, unsigned int p);

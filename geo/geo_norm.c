@@ -6,18 +6,24 @@
 /*   By: alhote <alhote@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/08 18:32:19 by alhote            #+#    #+#             */
-/*   Updated: 2016/10/30 14:21:39 by snicolet         ###   ########.fr       */
+/*   Updated: 2017/06/05 16:58:37 by snicolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "geo.h"
 
-t_v3f			geo_normv(t_v3f v)
+t_v3f			geo_normv(const t_v3f v)
 {
-	float	size;
+	float		size;
 
-	size = sqrtf(powf(v.x, 2.0) + powf(v.y, 2.0) + powf(v.z, 2.0));
-	return ((t_v3f){v.x / size, v.y / size, v.z / size});
+	if ((size = v.x * v.x + v.y * v.y + v.z * v.z) == 1.0f)
+		return (v);
+	size = 1.0f / sqrtf(size);
+	return ((t_v3f){
+		.x = v.x * size,
+		.y = v.y * size,
+		.z = v.z * size
+	});
 }
 
 t_v4f			geo_normv4f(t_v4f v)
