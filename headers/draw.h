@@ -17,7 +17,6 @@
 # include <SDL2/SDL.h>
 # include "geo.h"
 # include "colors.h"
-# include "tpoint.h"
 # include "drawsdl.h"
 # include "t_v2.h"
 # include "t_v3.h"

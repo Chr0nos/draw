@@ -12,7 +12,7 @@
 
 #ifndef DRAWSDL_H
 # define DRAWSDL_H
-# include "tpoint.h"
+# include "t_v2.h"
 # include <SDL2/SDL.h>
 
 typedef struct		s_drawsdl

@@ -21,4 +21,5 @@ typedef struct	s_perspective
 	float		fardist;
 	int			lefthanded:1;
 }				t_perspective;
+
 #endif
