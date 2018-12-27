@@ -30,6 +30,6 @@ t_quaternion			geo_quat_from_rot(const t_v3d rotations)
 	q = geo_quat_mult(q, geo_quat_rot(
 		(t_v3d){0.0, 1.0, 0.0}, deg2rad(rotations.y)));
 	q = geo_quat_mult(q, geo_quat_rot(
-		(t_v3d){0.0, 0.0, 1.0}, deg2rad(rotations.x)));
+		(t_v3d){0.0, 0.0, 1.0}, deg2rad(rotations.z)));
 	return (q);
 }
