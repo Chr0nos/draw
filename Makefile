@@ -89,7 +89,8 @@ GEO=geo_mk_mat.c \
 	geo_quat_mult.c \
 	geo_quat_inv.c \
 	geo_quat_tomatrix.c \
-	geo_quat_identity.c
+	geo_quat_identity.c \
+	geo_quat_from_rot.c
 
 BLEND_DIR=blend
 BLEND=to_rgb.c \
