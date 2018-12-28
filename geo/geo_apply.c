@@ -29,3 +29,12 @@ t_v4d		geo_apply_m4(t_v4d pt, const t_m4 *m)
 		(m->x.w * pt.x) + (m->y.w * pt.y) + (m->z.w * pt.z) + (m->w.w * pt.w)
 	});
 }
+
+t_v3d		geo_apply_v3d(const t_v3d v, const t_m4 *m)
+{
+	return ((t_v3d){
+		.x = (m->x.x * v.x) + (m->y.x * v.y) + (m->z.x * v.z),
+		.y = (m->x.y * v.x) + (m->y.y * v.y) + (m->z.y * v.z),
+		.z = (m->x.z * v.x) + (m->y.z * v.y) + (m->z.z * v.z)
+	});
+}

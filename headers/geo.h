@@ -89,6 +89,7 @@ double			geo_distv4(const t_v4d a, const t_v4d b);
 double			geo_lenv4(t_v4d v);
 t_v4d			geo_dtov4d(double x);
 t_v3f			geo_apply(t_v3f point, const t_matrix *t);
+t_v3d			geo_apply_v3d(const t_v3d v, const t_m4 *m);
 t_v4d			geo_crossv4(t_v4d a, t_v4d b);
 
 void			geo_putvector(t_v3f v, unsigned int p);
