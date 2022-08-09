@@ -15,8 +15,8 @@
 
 unsigned int		draw_suv(SDL_Surface *surface, t_v2f uv)
 {
-	const register int		posy = (int)(surface->h * uv.y);
-	const register int		posx = (int)(surface->w * uv.x);
+	const register int		posy = (int)((float)surface->h * uv.y);
+	const register int		posx = (int)((float)surface->w * uv.x);
 
 	if ((posy >= surface->h) || (posy < 0) ||
 		(posx >= surface->w) || (posx < 0))
@@ -56,15 +56,16 @@ static inline float	clamp(float x)
 
 unsigned int		draw_suv_smooth(SDL_Surface *surface, t_v2f uv)
 {
-	const t_v2f			step = (t_v2f){1.0f / surface->w, 1.0f / surface->h};
+	const t_v2f			step = (t_v2f){
+		1.0f / (float)surface->w, 1.0f / (float)surface->h};
 	t_v2f				pxuv;
 	const unsigned int	color_a = draw_suv(surface, uv);
 	t_v3ui				color;
 	t_v3f				lerp_pc;
 
 	pxuv = (t_v2f){
-		(geo_fract(uv.x * surface->w) - 0.5f) * 2.0f,
-		(geo_fract(uv.y * surface->h) - 0.5f) * 2.0f
+		(geo_fract(uv.x * (float)surface->w) - 0.5f) * 2.0f,
+		(geo_fract(uv.y * (float)surface->h) - 0.5f) * 2.0f
 	};
 	color.x = draw_suv(surface,
 		(t_v2f){clamp(uv.x + ((pxuv.x > 0.0f) ? step.x : -step.x)), uv.y});

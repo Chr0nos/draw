@@ -47,7 +47,7 @@ t_matrix	geo_mk_iso(int x, int y, int w, int h)
 	m.x = geo_mkv((float)w, 0.0f, 0.0f);
 	m.y = geo_mkv(0.0f, (float)h, 0.0f);
 	m.z = geo_mkv(0.0f, 0.0f, 1.0f);
-	m.offset = geo_mkv(x, y, 0.0f);
+	m.offset = geo_mkv((float)x, (float)y, 0.0f);
 	return (m);
 }
 
